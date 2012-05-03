@@ -15,7 +15,7 @@ cookbook_email            "wpeterson@brightcove.com"
 ## default values
 knife[:flavor] = 'm1.large'
 knife[:image] = 'ami-4fa37426' # oneiric ocelot us-east-1 64-bit instance-store
-encrypted_data_bag_secret "#{current_dir}/../data_bags/data_bag_key"
+encrypted_data_bag_secret "/work/cookbooks/data_bags/data_bag_key"
 
 env = ENV['CHEF_ENV']
 if env == "production"
@@ -23,7 +23,7 @@ if env == "production"
   environment "production"
   knife[:aws_access_key_id] = ENV['AWS_PROD_ACCESS_KEY']
   knife[:aws_secret_access_key] = ENV['AWS_PROD_SECRET_KEY']
-  knife[:availability_zone] = 'us-east-1c'
+#  knife[:availability_zone] = 'us-east-1c'
   knife[:aws_ssh_key_id] = 'katama-prod'
   #knife[:identity_file] = "/Users/wpeterson/.ec2/katama-prod.pem"
 
@@ -32,7 +32,7 @@ elsif env == "staging"
   environment "staging"
   knife[:aws_access_key_id] = ENV['AWS_QA_ACCESS_KEY']
   knife[:aws_secret_access_key] = ENV['AWS_QA_SECRET_KEY']
-  knife[:availability_zone] = 'us-west-1c'
+#  knife[:availability_zone] = 'us-west-1c'
   knife[:aws_ssh_key_id] = 'katama_integration'
   #knife[:identity_file] = "/Users/wpeterson/.ec2/katama_integration.pem"
 
@@ -40,7 +40,7 @@ else # must be QA
   environment "qa"
   knife[:aws_access_key_id] = ENV['AWS_QA_ACCESS_KEY']
   knife[:aws_secret_access_key] = ENV['AWS_QA_SECRET_KEY']
-  knife[:availability_zone] = 'us-east-1c'
+#  knife[:availability_zone] = 'us-east-1c'
   knife[:aws_ssh_key_id] = 'katama_integration'
   #knife[:identity_file] = "/Users/wpeterson/.ec2/katama_integration.pem"
 end
