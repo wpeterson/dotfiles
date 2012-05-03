@@ -31,6 +31,8 @@ alias git-scoreboard="git shortlog -n -s -e"
 alias master='git checkout master'
 
 alias b='bundle exec'
+alias bi='bundle install --path .bundle --binstubs .bin'
+alias clean_bundle='rm -rf .bundle .bin'
 alias ks='cd /work/katama_server'
 alias kit='cd /work/katama_image_transcoder'
 alias kr='cd /work/katama_runtime'
