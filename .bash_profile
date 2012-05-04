@@ -13,6 +13,7 @@ source /Users/local/VIDMARK/wpeterson/.rvm/scripts/rvm
 
 export CLICOLOR=1
 export LSCOLORS=ExFxCxDxBxegedabagacad
+export EDITOR=vim
 
 export PS1='\[\e[1;34m\][$(__git_ps1 "%s") \[\e[0m\]\w\[\e[1;34m\]]\$> \[\e[0m\]'
 export PS1="\[\033[G\]$PS1"
