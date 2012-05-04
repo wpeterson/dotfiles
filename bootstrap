@@ -1,0 +1,9 @@
+#!/usr/bin/env ruby
+target = ARGV[0] || '~'
+
+excludes = %w(. .. README.md .gitignore bootstrap)
+dotfiles = Dir.entries(Dir.pwd) - excludes
+
+dotfiles.each do |dotfile|
+  %x{ ln -s #{Dir.pwd}/#{dotfile} #{target}/#{dotfile} }
+end
