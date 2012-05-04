@@ -1,0 +1,5 @@
+#!/usr/bin/env ruby
+
+system("echo knife ec2 server delete `chef_instance_id #{ ARGV[0] }`")
+system("echo knife client delete #{ ARGV[0] }")
+system("echo knife node delete #{ ARGV[0] }")
