@@ -1,0 +1,3 @@
+#!/usr/bin/env ruby
+
+system("knife search node 'role:#{ARGV[0]} AND chef_environment:#{ARGV[1]}' -a ec2.public_hostname")

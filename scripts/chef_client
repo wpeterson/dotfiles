@@ -1,0 +1,3 @@
+#!/usr/bin/env ruby
+
+system("knife ssh 'name:#{ARGV[0]}' -E qa -x ubuntu -a ec2.public_hostname -i ~/.ec2/katama-integration.pem 'sudo chef-client'")
