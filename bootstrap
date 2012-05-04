@@ -5,5 +5,7 @@ excludes = %w(. .. README.md .gitignore bootstrap)
 dotfiles = Dir.entries(Dir.pwd) - excludes
 
 dotfiles.each do |dotfile|
-  %x{ ln -s #{Dir.pwd}/#{dotfile} #{target}/#{dotfile} }
+  link = "#{target}/#{dotfile}"
+  puts "Linking #{link}"
+  %x{ ln -s #{Dir.pwd}/#{dotfile} #{link} }
 end
