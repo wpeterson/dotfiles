@@ -11,7 +11,6 @@ Checkout this repo and then run the bootstrap script to symlink the contents in 
     Linking /Users/local/VIDMARK/wpeterson/.bash_profile
     Linking /Users/local/VIDMARK/wpeterson/.chef
     Linking /Users/local/VIDMARK/wpeterson/.gemrc
-    Linking /Users/local/VIDMARK/wpeterson/.git
     Linking /Users/local/VIDMARK/wpeterson/.gitconfig
     Linking /Users/local/VIDMARK/wpeterson/.zshrc
     Linking /Users/local/VIDMARK/wpeterson/scripts
