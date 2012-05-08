@@ -15,8 +15,8 @@ export CLICOLOR=1
 export LSCOLORS=ExFxCxDxBxegedabagacad
 export EDITOR=vim
 
-export GIT_PS1_SHOWDIRTYSTATE=true
-export GIT_PS1_SHOWUPSTREAM=git
+# export GIT_PS1_SHOWDIRTYSTATE=true
+# export GIT_PS1_SHOWUPSTREAM=git
 export PS1='\[\e[1;34m\][$(__git_ps1 "%s") \[\e[0m\]\w\[\e[1;34m\]]\$> \[\e[0m\]'
 export PS1="\[\033[G\]$PS1"
 
