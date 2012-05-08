@@ -1,3 +1,4 @@
+#!/usr/bin/env ruby
 # Ruby script to help with spinning up instances with Hosted Chef
 # example:
 # ruby spin_up.rb -e qa -r rails_server -n scott -z us-east-1a
