@@ -36,6 +36,7 @@ alias bi='bundle install --path .bundle --binstubs .bin'
 alias bd='rm -rf .bundle .bin'
 alias ks='cd /work/katama_server'
 alias kit='cd /work/katama_image_transcoder'
+alias kios='cd /work/katama_ios_resque_endpoint'
 alias kr='cd /work/katama_runtime'
 alias mmd='cd /work/mock_maitred_server'
 
