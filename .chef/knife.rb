@@ -8,7 +8,7 @@ validation_key            "#{current_dir}/brightcove-appcloud-validator.pem"
 chef_server_url           "https://api.opscode.com/organizations/brightcove-appcloud"
 cache_type                 'BasicFile'
 cache_options( :path =>   "#{ENV['HOME']}/.chef/checksums" )
-cookbook_path             ["#{current_dir}/../cookbooks"]
+cookbook_path             ["/work/cookbooks/cookbooks"]
 cookbook_copyright        "Brightcove, Inc."
 cookbook_email            "wpeterson@brightcove.com"
 
