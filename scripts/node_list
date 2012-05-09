@@ -1,6 +1,34 @@
 #!/usr/bin/env ruby
 
-query = ["role:#{ARGV[0]}"]
-query << "chef_environment:#{ARGV[1]}" if ARGV[1]
+require 'optparse'
+options = {
+}
 
-system("knife search node '#{ query.join(' AND ') }' -a ec2.public_hostname")
+parser = OptionParser.new do |opts|
+  opts.banner = <<EOL
+node_list wraps knife search node w/ a nicer interface
+
+  Usage: node_list [options] [role] [env]
+EOL
+
+  opts.on('-r', '--role [ROLE]', "Node Role to match") {|v| options[:role] = v }
+  opts.on('-e', '--environment [ENV]', "Node chef-environment to match") {|v| options[:chef_environment] = v }
+  opts.on_tail("-h", "--help", "Show this message") do
+    puts opts
+    exit
+  end
+end
+parser.parse!(ARGV)
+
+options[:role]              = ARGV[0] if ARGV[0]
+options[:chef_environment]  = ARGV[1] if ARGV[1]
+
+unless options.any?
+  puts "ERROR: Must specify one or more node filters"
+  puts parser
+  exit 1
+end
+
+filters = options.keys.map {|option| "#{option}:#{options[option]}" }
+
+system("knife search node '#{ filters.join(' AND ') }' -a ec2.public_hostname")
