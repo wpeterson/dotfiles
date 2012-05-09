@@ -1,3 +1,6 @@
 #!/usr/bin/env ruby
 
-system("knife search node 'role:#{ARGV[0]} AND chef_environment:#{ARGV[1]}' -a ec2.public_hostname")
+query = ["role:#{ARGV[0]}"]
+query << "chef_environment:#{ARGV[1]}" if ARGV[1]
+
+system("knife search node '#{ query.join(' AND ') }' -a ec2.public_hostname")
