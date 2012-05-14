@@ -2,7 +2,7 @@
 require 'optparse'
 
 options = {
-  :chef_environment => 'staging'
+  :chef_environment => 'qa'
 }
 
 parser = OptionParser.new do |opts|
