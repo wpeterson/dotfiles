@@ -43,7 +43,7 @@ alias kr='cd /work/katama_runtime'
 alias mmd='cd /work/mock_maitred_server'
 
 alias dev_ssh='~/scripts/katama_ssh ~/.ec2/katama-integration.pem'
-alias prod_ssh='~/scripts/katama_ssh ~/.ec2/katama-integration.pem'
+alias prod_ssh='~/scripts/katama_ssh ~/.ec2/katama-prod.pem'
 
 ks
 
