@@ -1,0 +1,35 @@
+#!/usr/bin/env ruby
+require 'optparse'
+
+options = {
+  :chef_environment => 'staging'
+}
+
+parser = OptionParser.new do |opts|
+  opts.banner = <<EOL
+rails_app_version lists the current revision a rails app is running on a host.
+
+  Usage: rails_app_version [options] node_name
+EOL
+
+  opts.on('-n', '--name [NAME]', "Node name to match") {|v| options[:name] = v }
+  opts.on('-r', '--role [ROLE]', "Role to match") {|v| options[:role] = v }
+  opts.on('-e', '--environment [ENV]', "Node chef-environment to match") {|v| options[:chef_environment] = v }
+  opts.on_tail("-h", "--help", "Show this message") do
+    puts opts
+    exit
+  end
+end
+parser.parse!(ARGV)
+
+options[:role] ||= ARGV[0]
+cmd_exec = ARGV[1]
+
+identity_file = case options[:chef_environment]
+  when 'production';  "~/.ec2/katama-prod.pem"
+  else;               "~/.ec2/katama-integration.pem"
+end
+
+filters = options.keys.map {|option| "#{option}:#{options[option]}" }
+
+system("knife ssh -x ubuntu -i #{identity_file} -a ec2.public_hostname '#{ filters.join(' AND ') }' '#{cmd_exec}'")
