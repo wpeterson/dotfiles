@@ -7,9 +7,9 @@ options = {
 
 parser = OptionParser.new do |opts|
   opts.banner = <<EOL
-rails_app_version lists the current revision a rails app is running on a host.
+node_exec lists the current revision a rails app is running on a host.
 
-  Usage: rails_app_version [options] node_name
+  Usage: node_exec [options] node_name
 EOL
 
   opts.on('-n', '--name [NAME]', "Node name to match") {|v| options[:name] = v }
