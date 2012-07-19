@@ -22,8 +22,7 @@ EOL
 end
 parser.parse!(ARGV)
 
-options[:role] ||= ARGV[0]
-cmd_exec = ARGV[1]
+cmd_exec = ARGV[0]
 
 identity_file = case options[:chef_environment]
   when 'production';  "~/.ec2/katama-prod.pem"
