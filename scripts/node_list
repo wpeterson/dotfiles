@@ -2,6 +2,7 @@
 
 require 'optparse'
 options = {
+  :attribute => 'ec2.public_hostname'
 }
 
 parser = OptionParser.new do |opts|
@@ -13,6 +14,7 @@ EOL
 
   opts.on('-r', '--role [ROLE]', "Node Role to match") {|v| options[:role] = v }
   opts.on('-e', '--environment [ENV]', "Node chef-environment to match") {|v| options[:chef_environment] = v }
+  opts.on('-a', '--attribute <attr>', "Node attribute to show") {|v| options[:attribute] = v }
   opts.on_tail("-h", "--help", "Show this message") do
     puts opts
     exit
@@ -29,6 +31,7 @@ unless options.any?
   exit 1
 end
 
-filters = options.keys.map {|option| "#{option}:#{options[option]}" }
+filter_attrs = options.keys - [:attribute]
+filters = filter_attrs.map {|option| "#{option}:#{options[option]}" }
 
-system("knife search node '#{ filters.join(' AND ') }' -a ec2.public_hostname")
+system("knife search node '#{ filters.join(' AND ') }' -a #{ options[:attribute] }")
