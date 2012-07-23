@@ -23,6 +23,6 @@ parser.parse!(ARGV)
 
 options[:name] = ARGV.pop
 
-system("CHEF_ENV=#{options[:chef_environment]} knife ec2 server delete `chef_instance_id #{ options[:name] }`")
-system("CHEF_ENV=#{options[:chef_environment]} knife client delete #{ options[:name] }")
-system("CHEF_ENV=#{options[:chef_environment]} knife node delete #{ options[:name] }")
+system("knife ec2 server delete `chef_instance_id #{ options[:name] }` CHEF_ENV=#{options[:chef_environment]}")
+system("knife client delete #{ options[:name] } -E #{options[:chef_environment]}")
+system("knife node delete #{ options[:name] } -E #{options[:chef_environment]}")
