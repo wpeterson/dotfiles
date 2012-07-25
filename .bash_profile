@@ -21,10 +21,14 @@ export EDITOR=vim
 export PS1='\[\e[1;34m\][$(__git_ps1 "%s") \[\e[0m\]\w\[\e[1;34m\]]\$> \[\e[0m\]'
 export PS1="\[\033[G\]$PS1"
 
+export ANDROID_HOME=/work/android-sdk-macosx
+
 # Readline Config
 bind 'set completion-ignore-case on'
 bind 'set completion-prefix-display-length 2'
 bind 'set show-all-if-ambiguous on'
+
+alias sc='synergyc -n winfield-lap winfield-pc.local'
 
 alias gpo="git push origin \$(__git_ps1 %s)"
 alias gpoh='git push origin head'
@@ -36,6 +40,7 @@ alias master='git checkout master'
 
 alias b='bundle exec'
 alias bi='bundle install --path .bundle --binstubs .bin'
+alias bo='EDITOR=mate bundle open'
 alias bd='rm -rf .bundle .bin'
 alias ks='cd /work/katama_server'
 alias kit='cd /work/katama_image_transcoder'
@@ -46,6 +51,7 @@ alias mmd='cd /work/mock_maitred_server'
 
 alias dev_ssh='~/scripts/katama_ssh ~/.ec2/katama-integration.pem'
 alias prod_ssh='~/scripts/katama_ssh ~/.ec2/katama-prod.pem'
+alias webuser_ssh='ssh -i ~/.ec2/webuser.pem -l web-user'
 
 ks
 
