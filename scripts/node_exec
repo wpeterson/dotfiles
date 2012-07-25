@@ -4,7 +4,7 @@ require 'optparse'
 options = {
 }
 
-parser = OptionParser.new do |opts|
+@parser = OptionParser.new do |opts|
   opts.banner = <<EOL
 node_exec lists the current revision a rails app is running on a host.
 
@@ -19,10 +19,11 @@ EOL
     exit
   end
 end
-parser.parse!(ARGV)
+@parser.parse!(ARGV)
 
 cmd_exec                      = ARGV.pop
-options[:role]              ||= ARGV.shift
+role = ARGV.shift
+options[:role]              ||= role if role
 options[:chef_environment]  ||= ARGV.shift
 
 identity_file = case options[:chef_environment]

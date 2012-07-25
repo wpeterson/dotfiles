@@ -22,16 +22,16 @@ EOL
 end
 parser.parse!(ARGV)
 
-options[:role]              ||= ARGV.shift
-options[:chef_environment]  ||= ARGV.shift
+options[:chef_environment]  ||= ARGV.pop
+role = ARGV.shift
+options[:role]              ||= role if role
 
-unless options.any?
+filter_attrs = (options.keys - [:attribute]).select {|k,v| v}
+filters = filter_attrs.map {|option| "#{option}:#{options[option]}" }
+unless filters.any?
   puts "ERROR: Must specify one or more node filters"
   puts parser
   exit 1
 end
-
-filter_attrs = options.keys - [:attribute]
-filters = filter_attrs.map {|option| "#{option}:#{options[option]}" }
 
 system("env CHEF_ENV=#{options[:chef_environment]} knife search node '#{ filters.join(' AND ') }' -a #{ options[:attribute] }")
