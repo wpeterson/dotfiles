@@ -26,7 +26,7 @@ options[:chef_environment]  ||= ARGV.pop
 role = ARGV.shift
 options[:role]              ||= role if role
 
-filter_attrs = (options.keys - [:attribute]).select {|k,v| v}
+filter_attrs = (options.keys - [:attribute]).select {|k| options[k] }
 filters = filter_attrs.map {|option| "#{option}:#{options[option]}" }
 unless filters.any?
   puts "ERROR: Must specify one or more node filters"
