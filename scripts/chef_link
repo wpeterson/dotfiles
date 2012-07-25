@@ -1,3 +1,0 @@
-#!/bin/bash
-
-ln -s ~/katama-dotfiles/.chef/ .chef

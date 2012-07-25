@@ -1,3 +1,0 @@
-#!/usr/bin/env ruby
-
-system("ssh -i #{ ARGV[0] } ubuntu@#{ ARGV[1] }")

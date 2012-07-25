@@ -1,4 +1,0 @@
-#!/usr/bin/env ruby
-
-system("mv #{ ARGV[0] } katama-dotfiles//#{ ARGV[0] }")
-system("ln -s katama-dotfiles//#{ ARGV[0] } .")
