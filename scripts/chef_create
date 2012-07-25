@@ -1,0 +1,74 @@
+#!/usr/bin/env ruby
+require 'optparse'
+
+options = {}
+
+@parser = OptionParser.new do |opts|
+  opts.banner = <<EOL
+chef_create creates a new server via knife ec2 server create
+
+  Usage: chef_exec [options] TYPE ENV NAME
+EOL
+
+  opts.on('-n',   '--name [NAME]', "Node name to match") {|v| options[:name] = v }
+  opts.on('-e',   '--environment [ENV]', "Node chef-environment to match") {|v| options[:chef_environment] = v }
+  opts.on('-d',   '--data-center [DC]', "EC2 Data CEnter") {|v| options[:data_center] = v }
+  opts.on('-r',   '--run-list [RUN_LIST]', "Node initial run list") {|v| options[:run_list] = v }
+  opts.on('-t',   '--type [TYPE]', "Server type (ie: unicorn)") {|v| options[:type] = v }
+  opts.on('-z',   '--availability_zone [AZ]', "EC2 Availability Zone") {|v| options[:az] = v }
+  opts.on('-s',   '--security_group [SG]', "EC2 security group") {|v| options[:security_group] = v }
+  opts.on_tail("-h", "--help", "Show this message") do
+    puts opts
+    exit
+  end
+end
+@parser.parse!(ARGV)
+
+def usage_error(error)
+  puts "ERROR: #{error}\n\n"
+  puts @parser
+  exit 1
+end
+
+options[:name]              ||= ARGV.pop
+options[:type]              ||= ARGV.shift
+options[:chef_environment]  ||= ARGV.shift
+options[:az]                ||= 'us-east-1c' if options[:chef_environment]=='qa'
+
+usage_error('server name required!') unless options[:name]
+usage_error('server type required!') unless options[:type]
+usage_error('chef environment required!') unless options[:chef_environment]
+usage_error('availability zone required!') unless options[:az]
+
+options[:security_group] ||= case options[:chef_environment]
+  when 'production';
+    case options[:type]
+      when 'mongo'; 'db_servers'
+      else; 'private_web'
+    end
+  else; 'default'
+end
+
+options[:data_center] ||= case options[:chef_environment]
+  when 'production'; 'davis'
+  else; "hudson"
+end
+
+options[:run_list] ||= begin
+  base_list = "role[MONITORING_DISABLED], role[#{ options[:data_center] }]"
+  custom_roles = case options[:type]
+    when 'unicorn'; "role[rails_server]"
+    when 'resque';  "role[rails_utility]"
+    when 'mongo';   "role[mongo], recipe[openvpn::client]"
+  end
+  [base_list, custom_roles, "role[base_final]"].join(', ')
+end
+
+identity_file = case options[:chef_environment]
+  when 'production';  "~/.ec2/katama-prod.pem"
+  else;               "~/.ec2/katama-integration.pem"
+end
+
+filters = options.keys.map {|option| "#{option}:#{options[option]}" }
+
+system("env CHEF_ENV=#{options[:chef_environment]} knife ec2 server create -V -E #{options[:chef_environment]} -x ubuntu -i #{identity_file} -r '#{options[:run_list]}' -N #{options[:name]} -Z #{options[:az]} -G #{options[:security_group]}")
