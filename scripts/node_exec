@@ -2,7 +2,6 @@
 require 'optparse'
 
 options = {
-  :chef_environment => 'qa'
 }
 
 parser = OptionParser.new do |opts|
@@ -22,7 +21,9 @@ EOL
 end
 parser.parse!(ARGV)
 
-cmd_exec = ARGV[0]
+cmd_exec                      = ARGV.pop
+options[:role]              ||= ARGV.shift
+options[:chef_environment]  ||= ARGV.shift
 
 identity_file = case options[:chef_environment]
   when 'production';  "~/.ec2/katama-prod.pem"
@@ -31,4 +32,4 @@ end
 
 filters = options.keys.map {|option| "#{option}:#{options[option]}" }
 
-system("knife ssh -x ubuntu -i #{identity_file} -a ec2.public_hostname '#{ filters.join(' AND ') }' '#{cmd_exec}'")
+system("env CHEF_ENV=#{options[:chef_environment]} knife ssh -x ubuntu -i #{identity_file} -a ec2.public_hostname '#{ filters.join(' AND ') }' '#{cmd_exec}'")

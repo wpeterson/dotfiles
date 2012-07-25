@@ -22,8 +22,8 @@ EOL
 end
 parser.parse!(ARGV)
 
-options[:role]              = ARGV[0] if ARGV[0]
-options[:chef_environment]  = ARGV[1] if ARGV[1]
+options[:role]              ||= ARGV.shift
+options[:chef_environment]  ||= ARGV.shift
 
 unless options.any?
   puts "ERROR: Must specify one or more node filters"
@@ -34,4 +34,4 @@ end
 filter_attrs = options.keys - [:attribute]
 filters = filter_attrs.map {|option| "#{option}:#{options[option]}" }
 
-system("knife search node '#{ filters.join(' AND ') }' -a #{ options[:attribute] }")
+system("env CHEF_ENV=#{options[:chef_environment]} knife search node '#{ filters.join(' AND ') }' -a #{ options[:attribute] }")
