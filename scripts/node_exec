@@ -22,15 +22,20 @@ end
 @parser.parse!(ARGV)
 
 cmd_exec                      = ARGV.pop
-role = ARGV.shift
-options[:role]              ||= role if role
-options[:chef_environment]  ||= ARGV.shift
+options[:chef_environment]  ||= ARGV.pop
+options[:role]              ||= ARGV.shift
 
 identity_file = case options[:chef_environment]
   when 'production';  "~/.ec2/katama-prod.pem"
   else;               "~/.ec2/katama-integration.pem"
 end
 
-filters = options.keys.map {|option| "#{option}:#{options[option]}" }
+filter_attrs = options.keys.select {|k| options[k] }
+filters = filter_attrs.map {|option| "#{option}:#{options[option]}" }
+unless filters.any?
+  puts "ERROR: Must specify one or more node filters"
+  puts parser
+  exit 1
+end
 
 system("env CHEF_ENV=#{options[:chef_environment]} knife ssh -x ubuntu -i #{identity_file} -a ec2.public_hostname '#{ filters.join(' AND ') }' '#{cmd_exec}'")
