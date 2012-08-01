@@ -38,4 +38,4 @@ unless filters.any?
   exit 1
 end
 
-system("env CHEF_ENV=#{options[:chef_environment]} knife ssh -x ubuntu -i #{identity_file} -a ec2.public_hostname '#{ filters.join(' AND ') }' '#{cmd_exec}'")
+system("env CHEF_ENV=#{options[:chef_environment]} knife ssh -x ubuntu -i #{identity_file} -a name '#{ filters.join(' AND ') }' '#{cmd_exec}'")
