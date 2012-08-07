@@ -12,6 +12,7 @@ cookbook_email            "wpeterson@brightcove.com"
 ## default values
 knife[:flavor] = 'm1.large'
 knife[:image] = 'ami-4fa37426' # oneiric ocelot us-east-1 64-bit instance-store
+knife[:ssh_attribute] = 'name'
 encrypted_data_bag_secret "/work/cookbooks/data_bags/data_bag_key"
 
 # Hosted chef
