@@ -4,7 +4,7 @@ log_location              STDOUT
 node_name                 "wpeterson"
 cache_type                 'BasicFile'
 cache_options( :path =>   "#{ENV['HOME']}/.chef/checksums" )
-cookbook_path             ["/work/cookbooks/cookbooks"]
+cookbook_path             ["/work/chef/cookbooks"]
 cookbook_copyright        "Brightcove, Inc."
 cookbook_email            "wpeterson@brightcove.com"
 
@@ -13,7 +13,7 @@ cookbook_email            "wpeterson@brightcove.com"
 knife[:flavor] = 'm1.large'
 knife[:image] = 'ami-4fa37426' # oneiric ocelot us-east-1 64-bit instance-store
 knife[:ssh_attribute] = 'name'
-encrypted_data_bag_secret "/work/cookbooks/data_bags/data_bag_key"
+encrypted_data_bag_secret "/work/chef/data_bags/data_bag_key"
 
 # Hosted chef
 # chef_server_url           "https://api.opscode.com/organizations/brightcove-appcloud"
