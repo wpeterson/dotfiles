@@ -26,8 +26,9 @@ options[:chef_environment]  ||= ARGV.pop
 options[:role]              ||= ARGV.shift
 
 identity_file = case options[:chef_environment]
-  when 'production';  "~/.ec2/katama-prod.pem"
-  else;               "~/.ec2/katama-integration.pem"
+  when 'production';          "~/.ec2/katama-prod.pem"
+  when 'katama_production';   "~/.ec2/katama-prod.pem"
+  else;                       "~/.ec2/katama-integration.pem"
 end
 
 filter_attrs = options.keys.select {|k| options[k] }
@@ -38,4 +39,4 @@ unless filters.any?
   exit 1
 end
 
-system("env CHEF_ENV=#{options[:chef_environment]} knife ssh -x ubuntu -i #{identity_file} -a name '#{ filters.join(' AND ') }' '#{cmd_exec}'")
+system("env CHEF_ENV=#{options[:chef_environment]} knife ssh -VV -a name '#{ filters.join(' AND ') }' '#{cmd_exec}'")

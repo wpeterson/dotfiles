@@ -41,7 +41,7 @@ usage_error('chef environment required!') unless options[:chef_environment]
 usage_error('availability zone required!') unless options[:az]
 
 options[:security_group] ||= case options[:chef_environment]
-  when 'production';
+  when 'production' || 'katama_producton';
     case options[:type]
       when 'mongo'; 'db_servers'
       else; 'private_web'
@@ -50,8 +50,9 @@ options[:security_group] ||= case options[:chef_environment]
 end
 
 options[:data_center] ||= case options[:chef_environment]
-  when 'production'; 'davis'
-  else; "hudson"
+  when 'production';        'davis'
+  when 'katama_production'; 'davis'
+  else;                     'hudson'
 end
 
 options[:run_list] ||= begin
@@ -65,8 +66,9 @@ options[:run_list] ||= begin
 end
 
 identity_file = case options[:chef_environment]
-  when 'production';  "~/.ec2/katama-prod.pem"
-  else;               "~/.ec2/katama-integration.pem"
+  when 'production';          '~/.ec2/katama-prod.pem'
+  when 'katama_production';   '~/.ec2/katama-prod.pem'
+  else;                       '~/.ec2/katama-integration.pem'
 end
 
 filters = options.keys.map {|option| "#{option}:#{options[option]}" }
