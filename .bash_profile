@@ -48,6 +48,7 @@ alias kios='cd /work/katama_ios_resque_endpoint'
 alias kr='cd /work/katama_runtime'
 alias kmd='cd /work/katama_mobile_debug'
 alias mmd='cd /work/mock_maitred_server'
+alias chef='cd /work/chef'
 
 alias dev_ssh='ssh -l ubuntu -i ~/.ec2/katama-integration.pem'
 alias prod_ssh='ssh -l ubuntu -i  ~/.ec2/katama-prod.pem'
