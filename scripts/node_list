@@ -34,4 +34,6 @@ unless filters.any?
   exit 1
 end
 
-system("env CHEF_ENV=#{options[:chef_environment]} knife search node '#{ filters.join(' AND ') }' -a #{ options[:attribute] }")
+cmd = "env CHEF_ENV=#{options[:chef_environment]} knife search node '#{ filters.join(' AND ') }' -a #{ options[:attribute] }"
+puts cmd
+system("cd /work/chef; #{cmd}")

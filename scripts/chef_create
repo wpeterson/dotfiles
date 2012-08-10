@@ -73,4 +73,6 @@ end
 
 filters = options.keys.map {|option| "#{option}:#{options[option]}" }
 
-system("env CHEF_ENV=#{options[:chef_environment]} knife ec2 server create -V -E #{options[:chef_environment]} -x ubuntu -i #{identity_file} -r '#{options[:run_list]}' -N #{options[:name]} -Z #{options[:az]} -G #{options[:security_group]}")
+cmd = "env CHEF_ENV=#{options[:chef_environment]} knife ec2 server create -V -E #{options[:chef_environment]} -x ubuntu -i #{identity_file} -r '#{options[:run_list]}' -N #{options[:name]} -Z #{options[:az]} -G #{options[:security_group]}"
+puts cmd
+system("cd /work/chef; #{cmd}")

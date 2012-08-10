@@ -32,6 +32,6 @@ usage_error('chef_environment required!') unless options[:chef_environment]
 options[:name]              ||= ARGV.shift
 usage_error('name required!') unless options[:name]
 
-system("env CHEF_ENV=#{options[:chef_environment]} knife ec2 server delete `chef_instance_id #{ options[:name] }` -E #{options[:chef_environment]}")
-system("env CHEF_ENV=#{options[:chef_environment]} knife client delete #{ options[:name] } -E #{options[:chef_environment]}")
-system("env CHEF_ENV=#{options[:chef_environment]} knife node delete #{ options[:name] } -E #{options[:chef_environment]}")
+system("cd /work/chef; env CHEF_ENV=#{options[:chef_environment]} knife ec2 server delete `chef_instance_id #{ options[:name] }` -E #{options[:chef_environment]}")
+system("cd /work/chef; env CHEF_ENV=#{options[:chef_environment]} knife client delete #{ options[:name] } -E #{options[:chef_environment]}")
+system("cd /work/chef; env CHEF_ENV=#{options[:chef_environment]} knife node delete #{ options[:name] } -E #{options[:chef_environment]}")
