@@ -30,6 +30,8 @@ bind 'set show-all-if-ambiguous on'
 
 alias sc='synergyc -n winfield-lap winfield-pc.local'
 
+alias mate='subl'
+
 alias gpo="git push origin \$(__git_ps1 %s)"
 alias gpoh='git push origin head'
 alias gg='git grep -in'
