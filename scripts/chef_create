@@ -71,8 +71,15 @@ identity_file = case options[:chef_environment]
   else;                       '~/.ec2/katama-integration.pem'
 end
 
+gateway_host = case options[:data_center]
+  when 'davis'; 'login.dav'
+  when 'ephrates'; 'login.eup'
+  when 'hudson'; 'login.hud'
+  else;            raise 'Unconfigured data center'
+end
+
 filters = options.keys.map {|option| "#{option}:#{options[option]}" }
 
-cmd = "env CHEF_ENV=#{options[:chef_environment]} knife ec2 server create -V -E #{options[:chef_environment]} -x ubuntu -i #{identity_file} -r '#{options[:run_list]}' -N #{options[:name]} -Z #{options[:az]} -G #{options[:security_group]}"
+cmd = "env CHEF_ENV=#{options[:chef_environment]} knife ec2 server create -V -E #{options[:chef_environment]} -x ubuntu -i #{identity_file} -r '#{options[:run_list]}' -N #{options[:name]} -Z #{options[:az]} -G #{options[:security_group]} -c private_ip_address -w #{gateway_host}"
 puts cmd
 system("cd /work/chef; #{cmd}")
