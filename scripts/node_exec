@@ -38,6 +38,6 @@ unless filters.any?
   puts parser
   exit 1
 end
-cmd = "env CHEF_ENV=#{options[:chef_environment]} knife ssh -a name -x ubuntu -i #{identity_file} '#{ filters.join(' AND ') }' '#{cmd_exec}'"
+cmd = "env CHEF_ENV=#{options[:chef_environment]} knife ssh -C 10 -a name -x ubuntu -i #{identity_file} '#{ filters.join(' AND ') }' '#{cmd_exec}'"
 puts cmd
 system("cd /work/chef; #{cmd}")
