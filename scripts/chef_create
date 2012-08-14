@@ -71,15 +71,16 @@ identity_file = case options[:chef_environment]
   else;                       '~/.ec2/katama-integration.pem'
 end
 
+ssh_user = ENV['USER']
 gateway_host = case options[:data_center]
-  when 'davis'; 'login.dav'
-  when 'ephrates'; 'login.eup'
-  when 'hudson'; 'login.hud'
-  else;            raise 'Unconfigured data center'
+  when 'davis';     "#{ssh_user}@login.dav.brightcove.com"
+  when 'ephrates';  "#{ssh_user}@login.eup.brightcove.com"
+  when 'hudson';    "#{ssh_user}@login.hud.brightcove.com"
+  else;             raise 'Unconfigured data center'
 end
 
 filters = options.keys.map {|option| "#{option}:#{options[option]}" }
 
-cmd = "env CHEF_ENV=#{options[:chef_environment]} knife ec2 server create -V -E #{options[:chef_environment]} -x ubuntu -i #{identity_file} -r '#{options[:run_list]}' -N #{options[:name]} -Z #{options[:az]} -G #{options[:security_group]} -c private_ip_address -w #{gateway_host}"
+cmd = "env CHEF_ENV=#{options[:chef_environment]} knife ec2 server create -V -E #{options[:chef_environment]} -x ubuntu -i #{identity_file} -r '#{options[:run_list]}' -N #{options[:name]} -Z #{options[:az]} -G #{options[:security_group]} --server-connect-attribute private_ip_address --ssh-gateway #{gateway_host}"
 puts cmd
 system("cd /work/chef; #{cmd}")
