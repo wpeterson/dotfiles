@@ -71,7 +71,7 @@ identity_file = case options[:chef_environment]
   else;                       '~/.ec2/katama-integration.pem'
 end
 
-ssh_user = ENV['USER']
+ssh_user = ENV['KATAMA_USER'] || ENV['USER']
 gateway_host = case options[:data_center]
   when 'davis';     "#{ssh_user}@login.dav.brightcove.com"
   when 'ephrates';  "#{ssh_user}@login.eup.brightcove.com"
