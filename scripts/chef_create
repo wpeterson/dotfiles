@@ -1,7 +1,9 @@
 #!/usr/bin/env ruby
 require 'optparse'
 
-options = {}
+options = {
+  :flavor => 'm1.large'
+}
 
 @parser = OptionParser.new do |opts|
   opts.banner = <<EOL
@@ -16,6 +18,7 @@ EOL
   opts.on('-r',   '--run-list [RUN_LIST]', "Node initial run list") {|v| options[:run_list] = v }
   opts.on('-t',   '--type [TYPE]', "Server type (ie: unicorn)") {|v| options[:type] = v }
   opts.on('-z',   '--availability_zone [AZ]', "EC2 Availability Zone") {|v| options[:az] = v }
+  opts.on('-f',   '--flavor [FLAVOR]', "EC2 Instance Type (ie: m1.large)") {|v| options[:flavor] = v }
   opts.on('-s',   '--security_group [SG]', "EC2 security group") {|v| options[:security_group] = v }
   opts.on_tail("-h", "--help", "Show this message") do
     puts opts
@@ -81,6 +84,6 @@ end
 
 filters = options.keys.map {|option| "#{option}:#{options[option]}" }
 
-cmd = "env CHEF_ENV=#{options[:chef_environment]} knife ec2 server create -V -E #{options[:chef_environment]} -x ubuntu -i #{identity_file} -r '#{options[:run_list]}' -N #{options[:name]} -Z #{options[:az]} -G #{options[:security_group]} --server-connect-attribute private_ip_address --ssh-gateway #{gateway_host}"
+cmd = "env CHEF_ENV=#{options[:chef_environment]} knife ec2 server create -V -E #{options[:chef_environment]} -x ubuntu -i #{identity_file} -r '#{options[:run_list]}' -N #{options[:name]} -f #{options[:flavor]} -Z #{options[:az]} -G #{options[:security_group]} --server-connect-attribute private_ip_address --ssh-gateway #{gateway_host}"
 puts cmd
 system("cd /work/chef; #{cmd}")
