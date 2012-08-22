@@ -44,7 +44,7 @@ usage_error('chef environment required!') unless options[:chef_environment]
 usage_error('availability zone required!') unless options[:az]
 
 options[:security_group] ||= case options[:chef_environment]
-  when 'production' || 'katama_producton';
+  when /production/;
     case options[:type]
       when 'mongo'; 'db_servers'
       else; 'private_web'
@@ -53,23 +53,25 @@ options[:security_group] ||= case options[:chef_environment]
 end
 
 options[:data_center] ||= case options[:chef_environment]
-  when 'production';        'davis'
-  when 'katama_production'; 'davis'
+  when /production/;        'davis'
   else;                     'hudson'
 end
 
 options[:run_list] ||= begin
   base_list = "role[MONITORING_DISABLED], role[#{ options[:data_center] }]"
   custom_roles = case options[:type]
-    when 'unicorn'; "role[rails_server]"
-    when 'resque';  "role[rails_utility]"
-    when 'mongo';   "role[mongo], recipe[openvpn::client]"
+    when 'unicorn';           "role[rails_server]"
+    when 'rails_server';      "role[rails_server]"
+    when 'resque';            "role[rails_utility]"
+    when 'rails_utility';     "role[rails_utility]"
+    when 'image_transcoder'; "role[image_transcoder]"
+    when 'mongo';             "role[mongo], recipe[openvpn::client]"
   end
   [base_list, custom_roles, "role[base_final]"].join(', ')
 end
 
 identity_file = case options[:chef_environment]
-  when 'production';          '~/.ec2/katama-prod.pem'
+  when /production/;          '~/.ec2/katama-prod.pem'
   when 'katama_production';   '~/.ec2/katama-prod.pem'
   else;                       '~/.ec2/katama-integration.pem'
 end
