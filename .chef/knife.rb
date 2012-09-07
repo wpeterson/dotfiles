@@ -8,6 +8,7 @@ cookbook_path             ["/work/chef/cookbooks"]
 cookbook_copyright        "Brightcove, Inc."
 cookbook_email            "wpeterson@brightcove.com"
 
+YAML::ENGINE.yamler = 'syck'
 
 ## default values
 knife[:flavor] = 'm1.large'
