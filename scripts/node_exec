@@ -9,7 +9,7 @@ options = {
   opts.banner = <<EOL
 node_exec lists the current revision a rails app is running on a host.
 
-  Usage: node_exec [options] node_name
+  Usage: node_exec [options] <role> <env> <cmd>
 EOL
 
   opts.on('-n', '--name [NAME]', "Node name to match") {|v| options[:name] = v }
