@@ -36,7 +36,7 @@ end
 options[:name]              ||= ARGV.pop
 options[:type]              ||= ARGV.shift
 options[:chef_environment]  ||= ARGV.shift
-options[:az]                ||= 'us-east-1c' if options[:chef_environment]=='qa'
+options[:az]                ||= 'us-east-1c' if %w(qa staging).include? options[:chef_environment]
 
 usage_error('server name required!') unless options[:name]
 usage_error('server type required!') unless options[:type]
