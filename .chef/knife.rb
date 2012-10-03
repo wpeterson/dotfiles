@@ -23,7 +23,7 @@ encrypted_data_bag_secret "/work/chef/data_bags/data_bag_key"
 # client_key                "#{current_dir}/hosted-wpeterson.pem"
 
 # Brightcove chef
-chef_server_url           "http://chef.ops.brightcove.com:4000"
+chef_server_url           "https://chef.ops.brightcove.com:4443"
 validation_client_name    "chef-validator"
 validation_key            "#{current_dir}/central-chef-validator.pem"
 client_key                "#{current_dir}/syseng-wpeterson.pem"
