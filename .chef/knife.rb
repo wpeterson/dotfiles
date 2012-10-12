@@ -19,8 +19,8 @@ encrypted_data_bag_secret "/work/chef/data_bags/data_bag_key"
 # Brightcove chef
 chef_server_url           "https://chef.ops.brightcove.com:4443"
 validation_client_name    "chef-validator"
-validation_key            "~/.chef/central-chef-validator.pem"
-client_key                "~/.chef/syseng-wpeterson.pem"
+validation_key            "#{ENV['HOME']}/.chef/central-chef-validator.pem"
+client_key                "#{ENV['HOME']}/.chef/syseng-wpeterson.pem"
 
 env = ENV['CHEF_ENV']
 if env == "production" || env == 'katama_production'
@@ -30,12 +30,12 @@ if env == "production" || env == 'katama_production'
   knife[:aws_secret_access_key] = ENV['AWS_PROD_SECRET_KEY']
 #  knife[:availability_zone] = 'us-east-1c'
   knife[:aws_ssh_key_id] = 'katama-prod'
-  knife[:identity_file] = "~/.ec2/katama-prod.pem"
+  knife[:identity_file] = "#{ENV['HOME']}/.ec2/katama-prod.pem"
 else # must be QA
   environment "qa"
   knife[:aws_access_key_id] = ENV['AWS_QA_ACCESS_KEY']
   knife[:aws_secret_access_key] = ENV['AWS_QA_SECRET_KEY']
 #  knife[:availability_zone] = 'us-east-1c'
   knife[:aws_ssh_key_id] = 'katama_integration'
-  knife[:identity_file] = "~/.ec2/katama-integration.pem"
+  knife[:identity_file] = "#{ENV['HOME']}/.ec2/katama-integration.pem"
 end
