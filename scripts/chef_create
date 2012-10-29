@@ -2,7 +2,8 @@
 require 'optparse'
 
 options = {
-  :flavor => 'm1.large'
+  :flavor => 'm1.large',
+  :region => 'us-east-1'
 }
 
 @parser = OptionParser.new do |opts|
@@ -20,6 +21,7 @@ EOL
   opts.on('-z',   '--availability_zone [AZ]', "EC2 Availability Zone") {|v| options[:az] = v }
   opts.on('-f',   '--flavor [FLAVOR]', "EC2 Instance Type (ie: m1.large)") {|v| options[:flavor] = v }
   opts.on('-s',   '--security_group [SG]', "EC2 security group") {|v| options[:security_group] = v }
+  opts.on('-e',   '--region [R]', "EC2 Region") {|v| options[:region] = v }
   opts.on_tail("-h", "--help", "Show this message") do
     puts opts
     exit
@@ -70,22 +72,35 @@ options[:run_list] ||= begin
   [base_list, custom_roles, "role[base_final]"].join(', ')
 end
 
-identity_file = case options[:chef_environment]
-  when /production/;          '~/.ec2/katama-prod.pem'
-  when 'katama_production';   '~/.ec2/katama-prod.pem'
-  else;                       '~/.ec2/katama-integration.pem'
+identity_file = case options[:region]
+  when 'us-east-1'
+    case options[:chef_environment]
+      when /production/;          '~/.ec2/katama-prod.pem'
+      else;                       '~/.ec2/katama-integration.pem'
+    end
+  when 'us-west-1'; '~/.ec2/euphrates.pem'
 end
 
 ssh_user = ENV['KATAMA_USER'] || ENV['USER']
 gateway_host = case options[:data_center]
   when 'davis';     "#{ssh_user}@login.dav.brightcove.com"
-  when 'ephrates';  "#{ssh_user}@login.eup.brightcove.com"
+  when 'euphrates'; "#{ssh_user}@login.eup.brightcove.com"
   when 'hudson';    "#{ssh_user}@login.hud.brightcove.com"
   else;             raise 'Unconfigured data center'
 end
 
+ami_id = case options[:region]
+  when 'us-east-1'; 'ami-4fa37426'
+  when 'us-west-1'; 'ami-5b94ca1e'
+end
+
+ssh_key_name = case options[:region]
+  when 'us-east-1'; 'katama-prod'
+  when 'us-west-1'; 'west-katama-prod'
+end
+
 filters = options.keys.map {|option| "#{option}:#{options[option]}" }
 
-cmd = "env CHEF_ENV=#{options[:chef_environment]} knife ec2 server create -V -E #{options[:chef_environment]} -x ubuntu -i #{identity_file} -r '#{options[:run_list]}' -N #{options[:name]} -f #{options[:flavor]} -Z #{options[:az]} -G #{options[:security_group]} --server-connect-attribute private_ip_address --ssh-gateway #{gateway_host}"
+cmd = "env DC=#{options[:data_center]} CHEF_ENV=#{options[:chef_environment]} knife ec2 server create -V -I #{ami_id} -E #{options[:chef_environment]} -x ubuntu -i #{identity_file} -r '#{options[:run_list]}' -N #{options[:name]} -f #{options[:flavor]} --region #{options[:region]} -Z #{options[:az]} --ssh-key #{ssh_key_name} -G #{options[:security_group]} --server-connect-attribute private_ip_address --ssh-gateway #{gateway_host}"
 puts cmd
 system("cd /work/chef; #{cmd}")

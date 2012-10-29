@@ -22,13 +22,21 @@ validation_client_name    "chef-validator"
 validation_key            "#{ENV['HOME']}/.chef/central-chef-validator.pem"
 client_key                "#{ENV['HOME']}/.chef/syseng-wpeterson.pem"
 
-env = ENV['CHEF_ENV']
+env = ENV['DC']
 if env == "production" || env == 'katama_production'
   puts "INFO: using production environment"
   environment "production"
   knife[:aws_access_key_id] = ENV['AWS_PROD_ACCESS_KEY']
   knife[:aws_secret_access_key] = ENV['AWS_PROD_SECRET_KEY']
 #  knife[:availability_zone] = 'us-east-1c'
+  knife[:aws_ssh_key_id] = 'katama-prod'
+  knife[:identity_file] = "#{ENV['HOME']}/.ec2/katama-prod.pem"
+elsif env == 'euphrates'
+  puts "INFO: using euphrates DC"
+  environment "katama_production"
+  knife[:image] = 'ami-5b94ca1e'
+  knife[:aws_access_key_id] = ENV['AWS_PROD_ACCESS_KEY']
+  knife[:aws_secret_access_key] = ENV['AWS_PROD_SECRET_KEY']
   knife[:aws_ssh_key_id] = 'katama-prod'
   knife[:identity_file] = "#{ENV['HOME']}/.ec2/katama-prod.pem"
 else # must be QA
