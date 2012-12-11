@@ -12,7 +12,8 @@ YAML::ENGINE.yamler = 'syck'
 
 ## default values
 knife[:flavor] = 'm1.large'
-knife[:image] = 'ami-4fa37426' # oneiric ocelot us-east-1 64-bit instance-store
+#knife[:image] = 'ami-4fa37426' # oneiric ocelot us-east-1 64-bit instance-store
+knife[:image] = 'ami-9a873ff3' # Ubuntu 12.04 precise
 knife[:ssh_attribute] = 'name'
 encrypted_data_bag_secret "/work/chef/data_bags/data_bag_key"
 
