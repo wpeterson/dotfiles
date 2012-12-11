@@ -10,6 +10,8 @@ export PATH=~/scripts:$PATH
 export PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 export PATH=./.bin:$PATH
 
+export PT_TOKEN="9b3f913fd39f940bfc4febc0bd60b9dc"
+
 source /Users/local/VIDMARK/wpeterson/.rvm/scripts/rvm
 
 export CLICOLOR=1
@@ -48,12 +50,14 @@ alias kios='cd /work/ios_resque_endpoint'
 alias kr='cd /work/katama_runtime'
 alias kmd='cd /work/mobile_debug'
 alias kpms='cd /work/pm_sender'
+alias kd='cd /work/katama_deploy'
 alias mmd='cd /work/mock_maitred_server'
 alias chef='cd /work/chef'
 
 alias dev_ssh='ssh -l ubuntu -i ~/.ec2/katama-integration.pem'
 alias prod_ssh='ssh -l ubuntu -i  ~/.ec2/katama-prod.pem'
 alias webuser_ssh='ssh -l web-user -i ~/.ec2/webuser.pem'
+alias pudding='ssh pudding.whatbox.ca'
 
 ks
 
