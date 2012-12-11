@@ -66,9 +66,13 @@ options[:run_list] ||= begin
     when 'rails_server';      "role[rails_server]"
     when 'resque';            "role[rails_utility]"
     when 'rails_utility';     "role[rails_utility]"
-    when 'image_transcoder'; "role[image_transcoder]"
-    when 'mongo';             "role[mongo], recipe[openvpn::client]"
+    when 'image_transcoder';  "role[image_transcoder]"
+    when 'mongo';             "role[mongo]"
   end
+
+  # Only use VPN for mongo servers in Dav/Eup
+  custom_roles << ",recipe[openvpn::client]" if options[:type] == 'mongo' && %w(davis euphrates).include?(options[:data_center])
+
   [base_list, custom_roles, "role[base_final]"].join(', ')
 end
 
