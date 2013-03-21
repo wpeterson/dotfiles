@@ -1,18 +1,17 @@
-source ~/.ec2/.katama_keys
-
-
-if [ -f `brew --prefix`/etc/bash_completion ]; then
-  . `brew --prefix`/etc/bash_completion
-fi
+#source ~/.ec2/.katama_keys
 
 export PATH=/Applications/GitX.app/Contents/Resources:$PATH
 export PATH=~/scripts:$PATH
+export PATH=/usr/local/bin:$PATH
 export PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 export PATH=./.bin:$PATH
 
 export PT_TOKEN="9b3f913fd39f940bfc4febc0bd60b9dc"
 
-source /Users/local/VIDMARK/wpeterson/.rvm/scripts/rvm
+if [ -f `brew --prefix`/etc/bash_completion ]; then
+  . `brew --prefix`/etc/bash_completion
+  . `brew --prefix`/etc/bash_completion.d/git-prompt.sh
+fi
 
 export CLICOLOR=1
 export LSCOLORS=ExFxCxDxBxegedabagacad
@@ -29,8 +28,6 @@ export ANDROID_HOME=/work/android-sdk-macosx
 bind 'set completion-ignore-case on'
 bind 'set completion-prefix-display-length 2'
 bind 'set show-all-if-ambiguous on'
-
-alias sc='synergyc -n winfield-lap winfield-pc.local'
 
 alias gpo="git push origin \$(__git_ps1 %s)"
 alias gpoh='git push origin head'
@@ -54,11 +51,17 @@ alias kd='cd /work/katama_deploy'
 alias mmd='cd /work/mock_maitred_server'
 alias chef='cd /work/chef'
 
+alias pr='cd ~/src/polar-rails'
+alias pi='cd ~/src/polar-ios'
+
 alias dev_ssh='ssh -l ubuntu -i ~/.ec2/katama-integration.pem'
 alias prod_ssh='ssh -l ubuntu -i  ~/.ec2/katama-prod.pem'
 alias webuser_ssh='ssh -l web-user -i ~/.ec2/webuser.pem'
 alias pudding='ssh pudding.whatbox.ca'
 
-ks
+pr
 
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
+
+### Added by the Heroku Toolbelt
+export PATH="/usr/local/heroku/bin:$PATH"
