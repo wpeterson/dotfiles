@@ -29,6 +29,7 @@ bind 'set completion-ignore-case on'
 bind 'set completion-prefix-display-length 2'
 bind 'set show-all-if-ambiguous on'
 
+# Git Aliases
 alias gpo="git push origin \$(__git_ps1 %s)"
 alias gpoh='git push origin head'
 alias gg='git grep -in'
@@ -37,6 +38,11 @@ alias gpr='git pull --rebase --stat'
 alias git-scoreboard="git shortlog -n -s -e"
 alias master='git checkout master'
 
+# Heroku aliases
+alias deployStaging="git push staging \$(__git_ps1 %s):master"
+alias deployProduction="git push production \$(__git_ps1 %s):master"
+
+# Project/Rails Aliases
 alias b='bundle exec'
 alias bi='bundle install --path .bundle --binstubs .bin'
 alias bo='EDITOR=mate bundle open'
