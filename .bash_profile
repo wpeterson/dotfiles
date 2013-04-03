@@ -29,6 +29,8 @@ bind 'set completion-ignore-case on'
 bind 'set completion-prefix-display-length 2'
 bind 'set show-all-if-ambiguous on'
 
+alias mate=subl
+
 # Git Aliases
 alias gpo="git push origin \$(__git_ps1 %s)"
 alias gpoh='git push origin head'
