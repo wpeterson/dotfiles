@@ -67,6 +67,9 @@ alias prod_ssh='ssh -l ubuntu -i  ~/.ec2/katama-prod.pem'
 alias webuser_ssh='ssh -l web-user -i ~/.ec2/webuser.pem'
 alias pudding='ssh pudding.whatbox.ca'
 
+# IRB Shell config
+IRBRC=./config/.irbrc
+
 pr
 
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
