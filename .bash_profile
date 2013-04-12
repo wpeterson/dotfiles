@@ -29,7 +29,7 @@ bind 'set completion-ignore-case on'
 bind 'set completion-prefix-display-length 2'
 bind 'set show-all-if-ambiguous on'
 
-alias mate=subl
+alias mate="echo 'mate alias deprecated!!!'; subl"
 
 # Git Aliases
 alias gpo="git push origin \$(__git_ps1 %s)"
@@ -47,7 +47,7 @@ alias deployProduction="git push production \$(__git_ps1 %s):master"
 # Project/Rails Aliases
 alias b='bundle exec'
 alias bi='bundle install --path .bundle --binstubs .bin'
-alias bo='EDITOR=mate bundle open'
+alias bo='EDITOR=subl bundle open'
 alias bd='rm -rf .bundle .bin'
 alias ks='cd ~/src//studio'
 alias kit='cd ~/src//image_transcoder'
