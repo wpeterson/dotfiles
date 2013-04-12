@@ -1,4 +1,4 @@
-#source ~/.ec2/.katama_keys
+source ~/.ec2/.katama_keys
 
 export PATH=/Applications/GitX.app/Contents/Resources:$PATH
 export PATH=~/scripts:$PATH
