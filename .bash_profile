@@ -47,6 +47,7 @@ alias deployProduction="git push production \$(__git_ps1 %s):master"
 # Project/Rails Aliases
 alias b='bundle exec'
 alias h='heroku'
+alias r='rails'
 
 alias bi='bundle install --path .bundle --binstubs .bin'
 alias bo='EDITOR=subl bundle open'
