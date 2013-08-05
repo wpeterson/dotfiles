@@ -48,6 +48,8 @@ alias deployProduction="git push production \$(__git_ps1 %s):master"
 alias b='bundle exec'
 alias h='heroku'
 alias r='rails'
+alias zen="~/src/zen_chimes/bin/chime_runner.rb"
+alias rt='~/src/zen_chimes/bin/chime_runner.rb rake test'
 
 alias bi='bundle install --path .bundle --binstubs .bin'
 alias bo='EDITOR=subl bundle open'
