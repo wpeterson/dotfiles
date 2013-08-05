@@ -31,4 +31,4 @@
   po = push origin
 
 [core]
-  editor = mate -w
+  editor = subl -nw
