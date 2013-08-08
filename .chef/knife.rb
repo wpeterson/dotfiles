@@ -23,7 +23,7 @@ validation_client_name    "chef-validator"
 validation_key            "#{ENV['HOME']}/.chef/central-chef-validator.pem"
 client_key                "#{ENV['HOME']}/.chef/syseng-wpeterson.pem"
 
-env = ENV['DC']
+env = ENV['CHEF_ENV']
 if env == "production" || env == 'katama_production'
   puts "INFO: using production environment"
   environment "production"
