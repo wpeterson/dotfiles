@@ -41,8 +41,8 @@ alias git-scoreboard="git shortlog -n -s -e"
 alias master='git checkout master'
 
 # Heroku aliases
-alias deployStaging="git push staging \$(__git_ps1 %s):master && h run rake db:migrate -r staging"
-alias deployProduction="git push production \$(__git_ps1 %s):master && h run rake db:migrate -r production"
+alias deployStaging="git push -f staging \$(__git_ps1 %s):master && h run rake db:migrate -r staging"
+alias deployProduction="git push -f production \$(__git_ps1 %s):master && h run rake db:migrate -r production"
 
 # Project/Rails Aliases
 alias b='bundle exec'
