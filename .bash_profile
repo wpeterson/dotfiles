@@ -37,7 +37,6 @@ alias gpoh='git push origin head'
 alias gg='git grep -in'
 alias ggc='git grep -in --function-context'
 alias gpr='git pull --rebase --stat'
-alias git-scoreboard="git shortlog -n -s -e"
 alias set-remote-upstream="git branch --set-upstream-to=origin/\$(__git_ps1 %s) \$(__git_ps1 %s)"
 alias master='git checkout master'
 
