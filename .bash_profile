@@ -66,6 +66,7 @@ alias chef='cd ~/src//chef'
 
 alias pr='cd ~/src/polar-rails'
 alias pi='cd ~/src/polar-ios'
+alias opi='pi; open Polar.xcworkspace'
 
 alias dev_ssh='ssh -l ubuntu -i ~/.ec2/katama-integration.pem'
 alias prod_ssh='ssh -l ubuntu -i  ~/.ec2/katama-prod.pem'
