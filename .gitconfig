@@ -32,3 +32,6 @@
 
 [core]
   editor = subl -nw
+[diff]
+	algorithm = patience
+	context = 5
