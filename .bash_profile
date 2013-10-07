@@ -41,7 +41,7 @@ alias set-remote-upstream="git branch --set-upstream-to=origin/\$(__git_ps1 %s) 
 alias master='git checkout master'
 
 # Heroku aliases
-alias deployStaging="git push -f staging \$(__git_ps1 %s):master"
+alias deployStaging="git push -f staging \$(__git_ps1 %s):master && h run rake db:migrate -r staging"
 alias deployProduction="git push -f production \$(__git_ps1 %s):master && h run rake db:migrate -r production"
 
 # Project/Rails Aliases
@@ -51,7 +51,7 @@ alias r='rails'
 alias zen="~/src/zen_chimes/bin/chime_runner.rb"
 alias rt='~/src/zen_chimes/bin/chime_runner.rb rake test'
 
-alias bi='bundle install --path .bundle --binstubs .bin'
+alias bi='bundle install'
 alias bo='EDITOR=subl bundle open'
 alias bd='rm -rf .bundle .bin'
 alias ks='cd ~/src//studio'
@@ -66,7 +66,6 @@ alias chef='cd ~/src//chef'
 
 alias pr='cd ~/src/polar-rails'
 alias pi='cd ~/src/polar-ios'
-alias opi='pi; open Polar.xcworkspace'
 
 alias dev_ssh='ssh -l ubuntu -i ~/.ec2/katama-integration.pem'
 alias prod_ssh='ssh -l ubuntu -i  ~/.ec2/katama-prod.pem'
@@ -78,7 +77,7 @@ IRBRC=./config/.irbrc
 
 pr
 
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
-
 ### Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
+
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
