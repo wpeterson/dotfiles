@@ -67,6 +67,9 @@ alias chef='cd ~/src//chef'
 alias pr='cd ~/src/polar-rails'
 alias pi='cd ~/src/polar-ios'
 
+alias luke_ssh='ssh -i ~/.ssh/luke-aws-polar.pem -l ubuntu'
+alias polar_ssh='ssh -i ~/.ssh/polar-aws-ec2.pem -l ubuntu'
+
 alias dev_ssh='ssh -l ubuntu -i ~/.ec2/katama-integration.pem'
 alias prod_ssh='ssh -l ubuntu -i  ~/.ec2/katama-prod.pem'
 alias webuser_ssh='ssh -l web-user -i ~/.ec2/webuser.pem'
