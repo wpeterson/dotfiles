@@ -4,6 +4,7 @@ export PATH=/Applications/GitX.app/Contents/Resources:$PATH
 export PATH=~/scripts:$PATH
 export PATH=/usr/local/bin:$PATH
 export PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
+export PATH=$PATH:/usr/local/share/npm/bin
 export PATH=./.bin:$PATH
 
 export PT_TOKEN="9b3f913fd39f940bfc4febc0bd60b9dc"
