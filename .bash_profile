@@ -42,10 +42,6 @@ alias gbsu="git branch --set-upstream-to=origin/\$(__git_ps1 %s) \$(__git_ps1 %s
 alias set-remote-upstream="git branch --set-upstream-to=origin/\$(__git_ps1 %s) \$(__git_ps1 %s)"
 alias master='git checkout master'
 
-# Heroku aliases
-alias deployStaging="git push -f staging \$(__git_ps1 %s):master"
-alias deployProduction="git push -f production \$(__git_ps1 %s):master && h run rake db:migrate -r production"
-
 # Project/Rails Aliases
 alias b='bundle exec'
 alias h='heroku'
