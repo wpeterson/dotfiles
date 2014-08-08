@@ -7,6 +7,9 @@ export PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 export PATH=$PATH:/usr/local/share/npm/bin
 export PATH=./.bin:$PATH
 
+export GOPATH=~/go
+export PATH=$PATH:$GOPATH/bin
+
 export PT_TOKEN="9b3f913fd39f940bfc4febc0bd60b9dc"
 
 if [ -f `brew --prefix`/etc/bash_completion ]; then
