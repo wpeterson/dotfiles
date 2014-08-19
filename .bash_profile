@@ -72,6 +72,7 @@ alias pwp='cd ~/src/polar-wordpress-plugin'
 
 alias luke_ssh='ssh -i ~/.ssh/luke-aws-polar.pem -l ubuntu'
 alias polar_ssh='ssh -i ~/.ssh/polar-aws-ec2.pem -l ubuntu'
+alias const_ssh='ssh -i ~/.ssh/constellation-root.pem -l ubuntu'
 
 alias dev_ssh='ssh -l ubuntu -i ~/.ec2/katama-integration.pem'
 alias prod_ssh='ssh -l ubuntu -i  ~/.ec2/katama-prod.pem'
