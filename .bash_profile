@@ -69,6 +69,7 @@ alias pr='cd ~/src/polar-rails'
 alias pi='cd ~/src/polar-ios'
 alias pid='cd ~/src/polar-integration-docs'
 alias pwp='cd ~/src/polar-wordpress-plugin'
+alias pac='cd ~/src/polar-auto-scale'
 
 alias luke_ssh='ssh -i ~/.ssh/luke-aws-polar.pem -l ubuntu'
 alias polar_ssh='ssh -i ~/.ssh/polar-aws-ec2.pem -l ubuntu'
