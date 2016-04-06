@@ -9,3 +9,6 @@ dotfiles.each do |dotfile|
   puts "Linking #{link}"
   %x{ ln -s #{Dir.pwd}/#{dotfile} #{link} }
 end
+
+mkdir -p ~/Library/KeyBindings
+cp DefaultKeyBinding.dict ~/Library/KeyBindings

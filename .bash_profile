@@ -1,4 +1,6 @@
-source ~/.ec2/.katama_keys
+if [ -f ~/.ec2/.katama_keys ]; then
+  source ~/.ec2/.katama_keys
+fi
 
 export PATH=/Applications/GitX.app/Contents/Resources:$PATH
 export PATH=~/scripts:$PATH
@@ -15,6 +17,9 @@ export PT_TOKEN="9b3f913fd39f940bfc4febc0bd60b9dc"
 if [ -f `brew --prefix`/etc/bash_completion ]; then
   . `brew --prefix`/etc/bash_completion
   . `brew --prefix`/etc/bash_completion.d/git-prompt.sh
+else
+  echo "WARN: Bash Completion not found.  Install via:"
+  echo "   brew install bash-completion"
 fi
 
 export CLICOLOR=1
@@ -32,6 +37,9 @@ export ANDROID_HOME=/work/android-sdk-macosx
 bind 'set completion-ignore-case on'
 bind 'set completion-prefix-display-length 2'
 bind 'set show-all-if-ambiguous on'
+
+# Less Paging Config
+alias less="less -X"
 
 alias mate="echo 'mate alias deprecated!!!'; subl"
 
