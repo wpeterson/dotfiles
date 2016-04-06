@@ -1,0 +1,3 @@
+#!/bin/bash -e
+
+xpra attach --encoding=png ssh:winfieldp-linux.mtv.corp.google.com:100
