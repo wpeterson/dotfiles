@@ -1,4 +1,4 @@
-katama-dotfiles
+wpeterson-dotfiles
 ===============
 Personal dotfiles/config and helpful scripts for development.
 
