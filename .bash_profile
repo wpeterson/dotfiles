@@ -91,8 +91,6 @@ alias pudding='ssh pudding.whatbox.ca'
 # IRB Shell config
 IRBRC=./config/.irbrc
 
-pr
-
 ### Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
 
