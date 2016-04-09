@@ -10,5 +10,5 @@ dotfiles.each do |dotfile|
   %x{ ln -s #{Dir.pwd}/#{dotfile} #{link} }
 end
 
-mkdir -p ~/Library/KeyBindings
-cp DefaultKeyBinding.dict ~/Library/KeyBindings
+%x{ mkdir -p ~/Library/KeyBindings }
+%x{ cp DefaultKeyBinding.dict ~/Library/KeyBindings }
