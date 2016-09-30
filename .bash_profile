@@ -1,5 +1,5 @@
-if [ -f ~/.ec2/.katama_keys ]; then
-  source ~/.ec2/.katama_keys
+if [ -f ~/.secrets ]; then
+  source ~/.secrets
 fi
 
 export PATH=/Applications/GitX.app/Contents/Resources:$PATH
@@ -11,8 +11,6 @@ export PATH=./.bin:$PATH
 
 export GOPATH=~/go
 export PATH=$PATH:$GOPATH/bin
-
-export PT_TOKEN="9b3f913fd39f940bfc4febc0bd60b9dc"
 
 if [ -f `brew --prefix`/etc/bash_completion ]; then
   . `brew --prefix`/etc/bash_completion
