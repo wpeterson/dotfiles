@@ -7,6 +7,7 @@ export PATH=~/scripts:$PATH
 export PATH=/usr/local/bin:$PATH
 export PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 export PATH=$PATH:/usr/local/share/npm/bin
+export PATH=$PATH:/Applications/Postgres.app/Contents/Versions/latest/bin
 export PATH=./.bin:$PATH
 
 export GOPATH=~/go
@@ -77,6 +78,8 @@ alias pid='cd ~/src/polar-integration-docs'
 alias pwp='cd ~/src/polar-wordpress-plugin'
 alias pas='cd ~/src/polar-auto-scale'
 
+alias ezr='cd ~/src/ez-rails'
+
 alias luke_ssh='ssh -i ~/.ssh/luke-aws-polar.pem -l ubuntu'
 alias polar_ssh='ssh -i ~/.ssh/polar-aws-ec2.pem -l ubuntu'
 alias const_ssh='ssh -i ~/.ssh/constellation-root.pem -l ubuntu'
@@ -93,3 +96,6 @@ IRBRC=./config/.irbrc
 export PATH="/usr/local/heroku/bin:$PATH"
 
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
+
+# Default Project
+cd ~/src/ez-rails
