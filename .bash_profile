@@ -80,14 +80,7 @@ alias pas='cd ~/src/polar-auto-scale'
 
 alias ezr='cd ~/src/ez-rails'
 
-alias luke_ssh='ssh -i ~/.ssh/luke-aws-polar.pem -l ubuntu'
-alias polar_ssh='ssh -i ~/.ssh/polar-aws-ec2.pem -l ubuntu'
-alias const_ssh='ssh -i ~/.ssh/constellation-root.pem -l ubuntu'
-
-alias dev_ssh='ssh -l ubuntu -i ~/.ec2/katama-integration.pem'
-alias prod_ssh='ssh -l ubuntu -i  ~/.ec2/katama-prod.pem'
-alias webuser_ssh='ssh -l web-user -i ~/.ec2/webuser.pem'
-alias pudding='ssh pudding.whatbox.ca'
+alias util_ssh='ey ssh --environment=ez_prod2 --utilities=Utility'
 
 # IRB Shell config
 IRBRC=./config/.irbrc
