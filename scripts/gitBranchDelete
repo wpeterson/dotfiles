@@ -1,0 +1,9 @@
+#!/usr/bin/env ruby
+
+
+ARGV.each do |branch|
+  puts "=[#{branch}]".ljust(80, "=")
+  system "git branch -D #{branch}"
+  system "git push origin :#{branch}"
+  puts "="*80
+end
