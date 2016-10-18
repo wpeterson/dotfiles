@@ -1,3 +1,0 @@
-#!/usr/bin/env ruby
-
-system("knife node show #{ ARGV[0] } -a ec2.instance_id | cut -d ':' -f2")
