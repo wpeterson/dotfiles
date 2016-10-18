@@ -40,7 +40,7 @@ bind 'set show-all-if-ambiguous on'
 # Less Paging Config
 alias less="less -X"
 
-alias mate="echo 'mate alias deprecated!!!'; subl"
+alias netwtf='sudo /usr/local/Cellar/mtr/0.87/sbin/mtr -n 8.8.8.8'
 
 # Git Aliases
 alias gpo="git push origin \$(__git_ps1 %s)"
