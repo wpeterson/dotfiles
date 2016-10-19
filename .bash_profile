@@ -51,6 +51,7 @@ alias gpr='git pull --rebase --stat'
 alias gbsu="git branch --set-upstream-to=origin/\$(__git_ps1 %s) \$(__git_ps1 %s)"
 alias set-remote-upstream="git branch --set-upstream-to=origin/\$(__git_ps1 %s) \$(__git_ps1 %s)"
 alias master='git checkout master'
+alias rubyLint="git diff --name-only master..$(__git_ps1 %s) | grep \\.rb | xargs rubocop"
 
 # Project/Rails Aliases
 alias b='bundle exec'
