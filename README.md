@@ -8,9 +8,9 @@ Checkout this repo and then run the bootstrap script to symlink the contents in 
 
     $> git clone git@github.com:wpeterson/dotfiles.git
     $> ./bootstrap
-    Linking /Users/local/VIDMARK/wpeterson/.bash_profile
-    Linking /Users/local/VIDMARK/wpeterson/.chef
-    Linking /Users/local/VIDMARK/wpeterson/.gemrc
-    Linking /Users/local/VIDMARK/wpeterson/.gitconfig
-    Linking /Users/local/VIDMARK/wpeterson/.zshrc
-    Linking /Users/local/VIDMARK/wpeterson/scripts
+    Linking /Users/wpeterson/.bash_profile
+    Linking /Users/wpeterson/.chef
+    Linking /Users/wpeterson/.gemrc
+    Linking /Users/wpeterson/.gitconfig
+    Linking /Users/wpeterson/.zshrc
+    Linking /Users/wpeterson/scripts
