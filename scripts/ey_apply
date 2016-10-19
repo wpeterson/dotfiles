@@ -1,0 +1,14 @@
+#!/usr/bin/env ruby
+
+def ey_run(cmd)
+  puts "=[#{cmd}]".ljust(80, "=")
+  unless system(cmd)
+    exit 1
+  end
+  puts "="*80
+end
+
+env_name = ARGV[0] || 'ez_staging'
+
+ey_run("ey recipe upload --environment=#{ env_name }")
+ey_run("ey recipe apply --environment=#{ env_name }")
