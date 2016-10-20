@@ -82,6 +82,7 @@ alias pas='cd ~/src/polar-auto-scale'
 alias ezr='cd ~/src/ez-rails'
 
 alias util_ssh='ey ssh --environment=ez_prod2 --utilities=Utility'
+alias fluent_stage_ssh='ssh 10.206.24.204'
 
 # IRB Shell config
 IRBRC=./config/.irbrc
