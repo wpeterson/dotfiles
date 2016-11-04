@@ -1,9 +1,13 @@
-// Settings in here override those in "Default/Preferences.sublime-settings", and
-// are overridden in turn by file type specific settings.
 {
   "draw_white_space": "all",
+  "ensure_newline_at_eof_on_save": true,
+  "ignored_packages":
+  [
+    "Vintage"
+  ],
+  "rulers": [100, 120],
   "tab_size": 2,
   "translate_tabs_to_spaces": true,
-  "use_tab_stops": true,
-  "trim_trailing_white_space_on_save": true
+  "trim_trailing_white_space_on_save": true,
+  "use_tab_stops": true
 }
