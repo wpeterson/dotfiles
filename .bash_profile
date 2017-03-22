@@ -2,12 +2,14 @@ if [ -f ~/.secrets ]; then
   source ~/.secrets
 fi
 
+export PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 export PATH=/Applications/GitX.app/Contents/Resources:$PATH
 export PATH=~/scripts:$PATH
 export PATH=/usr/local/bin:$PATH
-export PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 export PATH=$PATH:/usr/local/share/npm/bin
 export PATH=$PATH:/Applications/Postgres.app/Contents/Versions/latest/bin
+export PATH="/usr/local/sbin:$PATH"
+export PATH="/usr/local/opt/openssl/bin:$PATH"
 export PATH=./.bin:$PATH
 
 export GOPATH=~/go
@@ -82,7 +84,8 @@ alias pas='cd ~/src/polar-auto-scale'
 alias ezr='cd ~/src/ez-rails'
 
 alias util_ssh='ey ssh --environment=ez_prod2 --utilities=Utility'
-alias fluent_stage_ssh='ssh 10.206.24.204'
+alias fluent_stage_ssh='ssh 10.206.24.45'
+alias fluent_prod_ssh='ssh 10.11.22.228'
 
 # IRB Shell config
 IRBRC=./config/.irbrc
