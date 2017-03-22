@@ -29,6 +29,7 @@
   ours = checkout --ours
   leaderboard = shortlog -n -s
   po = push origin
+  ls = log --name-only --oneline
 
 [core]
   editor = vim
