@@ -56,35 +56,27 @@ alias set-remote-upstream="git branch --set-upstream-to=origin/\$(__git_ps1 %s) 
 alias master='git checkout master'
 alias rubyLint='git diff --name-only master..$(__git_ps1 %s) | grep \\.rb | xargs rubocop'
 
-# Project/Rails Aliases
+# Rails Aliases
 alias b='bundle exec'
 alias h='heroku'
 alias r='rails'
 alias zen="~/src/zen_chimes/bin/chime_runner.rb"
 alias rt='~/src/zen_chimes/bin/chime_runner.rb rake test'
-
 alias bi='bundle install'
 alias bo='EDITOR=subl bundle open'
-alias bd='rm -rf .bundle .bin'
-alias ks='cd ~/src//studio'
-alias kit='cd ~/src//image_transcoder'
-alias kios='cd ~/src//ios_resque_endpoint'
-alias kr='cd ~/src//katama_runtime'
-alias kmd='cd ~/src//mobile_debug'
-alias kpms='cd ~/src//pm_sender'
-alias kd='cd ~/src//devops'
-alias mmd='cd ~/src//mock_maitred_server'
-alias chef='cd ~/src//chef'
 
-alias pr='cd ~/src/polar-rails'
-alias pi='cd ~/src/polar-ios'
-alias pid='cd ~/src/polar-integration-docs'
-alias pwp='cd ~/src/polar-wordpress-plugin'
-alias pas='cd ~/src/polar-auto-scale'
+# Node / Yarn Aliases
+alias y='yarn'
+alias node-update=''
 
+# Project Aliases
+alias ezd='cd ~/src/delivery'
+alias ezi='cd ~/src/identity'
 alias ezr='cd ~/src/ez-rails'
+alias ezm='cd ~/src/ezmanage-ui'
+alias kafka='cd ~/src/kafka-docker; docker/start'
 
-alias util_ssh='ey ssh --environment=ez_prod2 --utilities=Utility'
+alias prod_scheduler_ssh='ssh 10.11.22.218'
 alias fluent_stage_ssh='ssh 10.206.24.45'
 alias fluent_prod_ssh='ssh 10.11.22.228'
 
@@ -98,3 +90,4 @@ export PATH="/usr/local/heroku/bin:$PATH"
 
 # Default Project
 cd ~/src/ez-rails
+export PATH="/usr/local/opt/node@8/bin:$PATH"
