@@ -1,0 +1,12 @@
+#!/bin/bash
+set -e
+
+if [ -f ./yarn.lock ]; then
+  echo "Yarn detected"
+  echo "$> yarn install"
+  yarn install --frozen-lockfile
+else
+  echo "Defaulting to NPM"
+  echo "$> npm install"
+  npm install
+fi
