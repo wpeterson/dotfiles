@@ -67,7 +67,6 @@ alias bo='EDITOR=subl bundle open'
 
 # Node / Yarn Aliases
 alias y='yarn'
-alias node-update=''
 
 # Project Aliases
 alias ezd='cd ~/src/delivery'
