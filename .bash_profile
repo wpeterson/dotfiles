@@ -82,6 +82,10 @@ alias fluent_prod_ssh='ssh 10.11.22.228'
 # IRB Shell config
 IRBRC=./config/.irbrc
 
+# ezCater Kubernetes
+alias kube_proxy="kubectl config use-context --kubeconfig=~/kube-config && kubectl proxy"
+alias kc=kubectl
+
 ### Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
 
