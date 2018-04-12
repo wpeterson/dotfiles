@@ -1,0 +1,4 @@
+#!/bin/bash
+set -e
+
+docker run -p 9200:9200 -e "discovery.type=single-node" -d --restart always --name elasticsearch --network ezcater-development-network docker.elastic.co/elasticsearch/elasticsearch:6.2.3
