@@ -97,6 +97,9 @@ nvm use --silent 8.9.0
 
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
 
+# ez-rails config - Enable elasticsearch locally
+export ENABLE_CHEWY=true
+
 # Default Project
 cd ~/src/ez-rails
 export PATH="/usr/local/opt/node@8/bin:$PATH"
