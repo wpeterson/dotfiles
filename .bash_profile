@@ -7,7 +7,7 @@ export PATH=/Applications/GitX.app/Contents/Resources:$PATH
 export PATH=~/scripts:$PATH
 export PATH=/usr/local/bin:$PATH
 export PATH=$PATH:/usr/local/share/npm/bin
-export PATH=$PATH:/Applications/Postgres.app/Contents/Versions/latest/bin
+export PATH=$PATH:/Applications/Postgres.app/Contents/Versions/9.6/bin # Set to 9.6 for ez-rails
 export PATH="/usr/local/sbin:$PATH"
 export PATH="/usr/local/opt/openssl/bin:$PATH"
 export PATH=./.bin:$PATH
@@ -73,9 +73,12 @@ alias ezd='cd ~/src/delivery'
 alias ezi='cd ~/src/identity'
 alias ezr='cd ~/src/ez-rails'
 alias ezm='cd ~/src/ezmanage-ui'
+alias ezt='cd ~/src/ez-tracking-service'
+alias sms='cd ~/src/ezcater-sms-service'
+alias smsc='cd ~/src/ezcater_sms-ruby'
 alias kafka='cd ~/src/kafka-docker; docker/start'
 
-alias prod_scheduler_ssh='ssh 10.11.22.218'
+alias prod_scheduler_ssh='ssh 10.11.20.204'
 alias fluent_stage_ssh='ssh 10.206.24.45'
 alias fluent_prod_ssh='ssh 10.11.22.228'
 
