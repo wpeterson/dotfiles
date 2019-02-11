@@ -2,7 +2,7 @@ if [ -f ~/.secrets ]; then
   source ~/.secrets
 fi
 
-export PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
+#export PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 export PATH=/Applications/GitX.app/Contents/Resources:$PATH
 export PATH=~/scripts:$PATH
 export PATH=/usr/local/bin:$PATH
@@ -69,15 +69,23 @@ alias bo='EDITOR=subl bundle open'
 alias y='yarn'
 
 # Project Aliases
+alias cma='cd ~/src/customer-management-rails'
+alias cmr='cd ~/src/customer-management-react'
 alias ezd='cd ~/src/delivery'
 alias ezi='cd ~/src/identity'
 alias ezr='cd ~/src/ez-rails'
 alias ezm='cd ~/src/ezmanage-ui'
+alias ezp='cd ~/src/ezmanage-proxy'
 alias ezt='cd ~/src/ez-tracking-service'
 alias sms='cd ~/src/ezcater-sms-service'
 alias smsc='cd ~/src/ezcater_sms-ruby'
 alias kafka='cd ~/src/kafka-docker; docker/start'
 
+# Skyline Aliases
+alias kubeProduction='kubectl config use-context winfield.peterson-kubernetes-useast1-production'
+alias kubeStaging='kubectl config use-context winfield.peterson-kubernetes-useast1-staging'
+
+# Legacy AWS Aliases
 alias prod_scheduler_ssh='ssh 10.11.20.204'
 alias fluent_stage_ssh='ssh 10.206.24.45'
 alias fluent_prod_ssh='ssh 10.11.22.228'
