@@ -100,7 +100,7 @@ alias kubeProduction='kubectl config use-context winfield.peterson-kubernetes-us
 alias kubeStaging='kubectl config use-context winfield.peterson-kubernetes-useast1-staging'
 
 # Legacy AWS Aliases
-alias prod_scheduler_ssh='ssh 10.11.20.204'
+alias prod_scheduler_ssh='ssh 10.11.23.208'
 alias fluent_stage_ssh='ssh 10.206.24.45'
 alias fluent_prod_ssh='ssh 10.11.22.228'
 
