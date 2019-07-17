@@ -34,6 +34,19 @@ export PS1="\[\033[G\]$PS1"
 
 export ANDROID_HOME=/work/android-sdk-macosx
 
+
+ec2 () {
+    AWS_ENV=$1
+    PATTERN=$2
+    REGION=${3:-us-east-1}
+
+    aws --region=${REGION} \
+        --profile=${AWS_ENV} ec2 describe-instances \
+        --filters Name=tag:Name,Values=${PATTERN}* \
+        --query 'Reservations[].Instances[].[PrivateIpAddress,InstanceId,Tags[?Key==`Name`].Value[]]' \
+        --output text | sed 's/None$/None\n/' | sed '$!N;s/\n/ /'
+}
+
 # Readline Config
 bind 'set completion-ignore-case on'
 bind 'set completion-prefix-display-length 2'
