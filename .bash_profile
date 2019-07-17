@@ -58,8 +58,7 @@ alias less="less -X"
 alias netwtf='sudo /usr/local/Cellar/mtr/0.87/sbin/mtr -n 8.8.8.8'
 
 # Git Aliases
-alias gpo="git push origin \$(__git_ps1 %s)"
-alias gpoh='git push origin head'
+alias gpo="git push -u origin HEAD"
 alias gg='git grep -in'
 alias ggc='git grep -in --function-context'
 alias gpr='git pull --rebase --stat'
