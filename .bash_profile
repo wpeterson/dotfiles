@@ -81,27 +81,8 @@ alias bo='EDITOR=subl bundle open'
 alias y='yarn'
 
 # Project Aliases
-alias cma='cd ~/src/customer-management-rails'
-alias cmr='cd ~/src/customer-management-react'
-alias ezd='cd ~/src/ezcater-delivery'
-alias ezg='cd ~/src/ezcater_graphql_api'
-alias ezi='cd ~/src/ezcater-identity'
-alias ezr='cd ~/src/ez-rails'
-alias ezm='cd ~/src/ezmanage-ui'
-alias ezp='cd ~/src/ezmanage-proxy'
-alias ezt='cd ~/src/ez-tracking-service'
-alias sms='cd ~/src/ezcater-sms-service'
-alias smsc='cd ~/src/ezcater_sms-ruby'
-alias kafka='cd ~/src/kafka-docker; docker/start'
-
-# Skyline Aliases
-alias kubeProduction='kubectl config use-context winfield.peterson-kubernetes-useast1-production'
-alias kubeStaging='kubectl config use-context winfield.peterson-kubernetes-useast1-staging'
-
-# Legacy AWS Aliases
-alias prod_scheduler_ssh='ssh 10.11.23.208'
-alias fluent_stage_ssh='ssh 10.206.24.45'
-alias fluent_prod_ssh='ssh 10.11.22.228'
+alias ll="cd ~/src/lello"
+alias mj="cd ~/src/mockingjay"
 
 # IRB Shell config
 IRBRC=./config/.irbrc
