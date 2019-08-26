@@ -87,10 +87,6 @@ alias mj="cd ~/src/mockingjay"
 # IRB Shell config
 IRBRC=./config/.irbrc
 
-# ezCater Kubernetes
-alias kube_proxy="kubectl config use-context --kubeconfig=~/kube-config && kubectl proxy"
-alias kc=kubectl
-
 ### Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
 
@@ -101,10 +97,4 @@ nvm use --silent 8.9.0
 
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
 
-# ez-rails config - Enable elasticsearch locally
-export ENABLE_CHEWY=true
-
 # Default Project
-cd ~/src/ez-rails
-export PATH="/usr/local/opt/node@8/bin:$PATH"
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
