@@ -14,6 +14,7 @@ export PATH=./.bin:$PATH
 
 export GOPATH=~/go
 export PATH=$PATH:$GOPATH/bin
+export BBWORKSPACE=~/src
 
 if [ -f `brew --prefix`/etc/bash_completion ]; then
   . `brew --prefix`/etc/bash_completion
@@ -81,6 +82,7 @@ alias bo='EDITOR=subl bundle open'
 alias y='yarn'
 
 # Project Aliases
+alias lc="cd ~/src/local-config"
 alias ll="cd ~/src/lello"
 alias mj="cd ~/src/mockingjay"
 
@@ -95,6 +97,9 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
+
+# Setup local docker client env via dinghy
+eval $(dinghy env)
 
 # Default Project
 cd ~/src/mockingjay
