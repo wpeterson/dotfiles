@@ -33,9 +33,6 @@ export EDITOR=vim
 export PS1='\[\e[1;34m\][$(__git_ps1 "%s") \[\e[0m\]\w\[\e[1;34m\]]\$> \[\e[0m\]'
 export PS1="\[\033[G\]$PS1"
 
-export ANDROID_HOME=/work/android-sdk-macosx
-
-
 ec2 () {
     AWS_ENV=$1
     PATTERN=$2
@@ -100,6 +97,9 @@ export NVM_DIR="$HOME/.nvm"
 
 # Setup local docker client env via dinghy
 eval $(dinghy env)
+
+# added by Nix installer
+if [ -e /Users/winfield/.nix-profile/etc/profile.d/nix.sh ]; then . /Users/winfield/.nix-profile/etc/profile.d/nix.sh; fi
 
 # Default Project
 cd ~/src/mockingjay
