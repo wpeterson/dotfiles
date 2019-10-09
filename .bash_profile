@@ -96,7 +96,7 @@ export NVM_DIR="$HOME/.nvm"
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
 
 # Setup local docker client env via dinghy
-eval $(dinghy env)
+#eval $(dinghy env)
 
 # added by Nix installer
 if [ -e /Users/winfield/.nix-profile/etc/profile.d/nix.sh ]; then . /Users/winfield/.nix-profile/etc/profile.d/nix.sh; fi
