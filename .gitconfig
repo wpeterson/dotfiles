@@ -35,6 +35,7 @@
   words = diff --color-words
   commmit = commit
   comit = commit
+  chery-picl = cherry-pick
 
 [core]
   editor = vim
