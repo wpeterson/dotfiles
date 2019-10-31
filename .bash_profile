@@ -34,12 +34,11 @@ export PS1='\[\e[1;34m\][$(__git_ps1 "%s") \[\e[0m\]\w\[\e[1;34m\]]\$> \[\e[0m\]
 export PS1="\[\033[G\]$PS1"
 
 ec2 () {
-    AWS_ENV=$1
-    PATTERN=$2
-    REGION=${3:-us-east-1}
+    PATTERN=$1
+    REGION=${2:-us-east-1}
 
-    aws --region=${REGION} \
-        --profile=${AWS_ENV} ec2 describe-instances \
+    aws ec2 describe-instances \
+        --region=${REGION} \
         --filters Name=tag:Name,Values=${PATTERN}* \
         --query 'Reservations[].Instances[].[PrivateIpAddress,InstanceId,Tags[?Key==`Name`].Value[]]' \
         --output text | sed 's/None$/None\n/' | sed '$!N;s/\n/ /'
@@ -83,6 +82,10 @@ alias lc="cd ~/src/local-config"
 alias ll="cd ~/src/lello"
 alias mj="cd ~/src/mockingjay"
 
+# Chirp project aliases
+alias ec2-staging-chirp="ec2 '*chirp*' | grep 10.1"
+alias ec2-prod-chirp="ec2 '*chirp*' | grep 10.0"
+
 # IRB Shell config
 IRBRC=./config/.irbrc
 
@@ -99,7 +102,8 @@ export NVM_DIR="$HOME/.nvm"
 #eval $(dinghy env)
 
 # added by Nix installer
-if [ -e /Users/winfield/.nix-profile/etc/profile.d/nix.sh ]; then . /Users/winfield/.nix-profile/etc/profile.d/nix.sh; fi
+if [ -e ~/.nix-profile/etc/profile.d/nix.sh ]; then . ~/.nix-profile/etc/profile.d/nix.sh; fi
+export NIX_PATH=$NIX_PATH:bbpkgs=https://github.com/BookBub/nixpkgs/archive/VERSION.tar.gz
 
 # Default Project
 cd ~/src/mockingjay
