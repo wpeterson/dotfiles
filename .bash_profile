@@ -83,8 +83,8 @@ alias ll="cd ~/src/lello"
 alias mj="cd ~/src/mockingjay"
 
 # Chirp project aliases
-alias ec2-staging-chirp="ec2 '*chirp*' | grep 10.1"
-alias ec2-prod-chirp="ec2 '*chirp*' | grep 10.0"
+alias ec2-staging-chirp="ec2 '*chirp*' | grep kobubob.com | grep 10\.1"
+alias ec2-prod-chirp="ec2 '*chirp*' | grep bookbub.com | grep 10\.0"
 
 # IRB Shell config
 IRBRC=./config/.irbrc
