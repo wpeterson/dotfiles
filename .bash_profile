@@ -28,10 +28,11 @@ export CLICOLOR=1
 export LSCOLORS=ExFxCxDxBxegedabagacad
 export EDITOR=vim
 
-# export GIT_PS1_SHOWDIRTYSTATE=true
-# export GIT_PS1_SHOWUPSTREAM=git
 export PS1='\[\e[1;34m\][$(__git_ps1 "%s") \[\e[0m\]\w\[\e[1;34m\]]\$> \[\e[0m\]'
 export PS1="\[\033[G\]$PS1"
+
+# Alias aws to aws-vault
+alias aws="aws-vault exec ro -- aws"
 
 ec2 () {
     PATTERN=$1
@@ -74,6 +75,9 @@ alias rt='~/src/zen_chimes/bin/chime_runner.rb rake test'
 alias bi='bundle install'
 alias bo='EDITOR=subl bundle open'
 
+# NIX
+alias nx='nix-shell --command "$(declare -p PS1); return"'
+
 # Node / Yarn Aliases
 alias y='yarn'
 
@@ -81,10 +85,11 @@ alias y='yarn'
 alias lc="cd ~/src/local-config"
 alias ll="cd ~/src/lello"
 alias mj="cd ~/src/mockingjay"
+alias lm="cd ~/src/laminar"
 
 # Chirp project aliases
-alias ec2-staging-chirp="ec2 '*chirp*' | grep kobubob.com | grep 10\.1"
-alias ec2-prod-chirp="ec2 '*chirp*' | grep bookbub.com | grep 10\.0"
+alias ec2-staging-mockingjay="ec2 '*mockingjay*' | grep kobubob.com | grep 10\.1"
+alias ec2-prod-mockingjay="ec2 '*mockingjay*' | grep bookbub.com | grep 10\.0"
 
 # IRB Shell config
 IRBRC=./config/.irbrc
@@ -105,5 +110,13 @@ export NVM_DIR="$HOME/.nvm"
 if [ -e ~/.nix-profile/etc/profile.d/nix.sh ]; then . ~/.nix-profile/etc/profile.d/nix.sh; fi
 export NIX_PATH=$NIX_PATH:bbpkgs=https://github.com/BookBub/nixpkgs/archive/VERSION.tar.gz
 
-# Default Project
-cd ~/src/mockingjay
+
+if [ -z "$IN_NIX_SHELL" ]; then
+  echo "Not in NIX shell, loading default project/NIX..."
+
+  # Default Project
+  cd ~/src/mockingjay
+  nx
+else
+  echo "In NIX shell."
+fi
