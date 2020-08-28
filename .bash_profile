@@ -74,6 +74,7 @@ alias zen="~/src/zen_chimes/bin/chime_runner.rb"
 alias rt='~/src/zen_chimes/bin/chime_runner.rb rake test'
 alias bi='bundle install'
 alias bo='EDITOR=subl bundle open'
+alias please='sudo'
 
 # NIX
 alias nx='nix-shell --command "$(declare -p PS1); return"'
