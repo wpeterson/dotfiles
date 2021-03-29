@@ -26,6 +26,7 @@
   ci = commit
   br = branch
   co = checkout
+  checkotu = checkout
   df = diff
   lg = log -p
   m = merge
