@@ -123,3 +123,10 @@ if [ -z "$IN_NIX_SHELL" ]; then
 else
   echo "In NIX shell."
 fi
+
+# Chirp Alexa skill/ASK helper
+function askv () {
+  local role="$1"
+  shift
+  aws-vault exec "$role" -- ask "$@"
+}
