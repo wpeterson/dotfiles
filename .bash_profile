@@ -77,8 +77,9 @@ alias bi='bundle install'
 alias bo='EDITOR=subl bundle open'
 alias please='sudo'
 
-# NIX
+# NIX / overmind
 alias nx='nix-shell --command "$(declare -p PS1); return"'
+alias overmindReload='overmind kill; sleep 2; overmind start'
 
 # Node / Yarn Aliases
 alias y='yarn'
