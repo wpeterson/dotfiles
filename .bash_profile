@@ -92,6 +92,7 @@ alias lm="cd ~/src/laminar"
 # Chirp project aliases
 alias ec2-staging-mockingjay="ec2 '*mockingjay*' | grep kobubob.com | grep 10\.1"
 alias ec2-prod-mockingjay="ec2 '*mockingjay*' | grep bookbub.com | grep 10\.0"
+alias ec2-prod-lello="ec2 '*lello*' | grep bookbub.com | grep 10\.0"
 
 # IRB Shell config
 IRBRC=./config/.irbrc
