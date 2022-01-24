@@ -2,7 +2,6 @@ if [ -f ~/.secrets ]; then
   source ~/.secrets
 fi
 
-#export PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 export PATH=/Applications/GitX.app/Contents/Resources:$PATH
 export PATH=~/scripts:$PATH
 export PATH=/usr/local/bin:$PATH
@@ -14,7 +13,6 @@ export PATH=./.bin:$PATH
 
 export GOPATH=~/go
 export PATH=$PATH:$GOPATH/bin
-export BBWORKSPACE=~/src
 
 if [ -f `brew --prefix`/etc/bash_completion ]; then
   . `brew --prefix`/etc/bash_completion
@@ -30,9 +28,6 @@ export EDITOR=vim
 
 export PS1='\[\e[1;34m\][$(__git_ps1 "%s") \[\e[0m\]\w\[\e[1;34m\]]\$> \[\e[0m\]'
 export PS1="\[\033[G\]$PS1"
-
-# Alias aws to aws-vault
-alias aws="aws-vault exec ro -- aws"
 
 ec2 () {
     PATTERN=$1
@@ -71,8 +66,6 @@ alias rubyLint='git diff --name-only master..$(__git_ps1 %s) | grep \\.rb | xarg
 alias b='bundle exec'
 alias h='heroku'
 alias r='rails'
-alias zen="~/src/zen_chimes/bin/chime_runner.rb"
-alias rt='~/src/zen_chimes/bin/chime_runner.rb rake test'
 alias bi='bundle install'
 alias bo='EDITOR=subl bundle open'
 alias please='sudo'
@@ -81,19 +74,7 @@ alias please='sudo'
 alias nx='nix-shell --command "$(declare -p PS1); return"'
 alias overmindReload='overmind kill; sleep 2; overmind start'
 
-# Node / Yarn Aliases
-alias y='yarn'
-
 # Project Aliases
-alias lc="cd ~/src/local-config"
-alias ll="cd ~/src/lello"
-alias mj="cd ~/src/mockingjay"
-alias lm="cd ~/src/laminar"
-
-# Chirp project aliases
-alias ec2-staging-mockingjay="ec2 '*mockingjay*' | grep kobubob.com | grep 10\.1"
-alias ec2-prod-mockingjay="ec2 '*mockingjay*' | grep bookbub.com | grep 10\.0"
-alias ec2-prod-lello="ec2 '*lello*' | grep bookbub.com | grep 10\.0"
 
 # IRB Shell config
 IRBRC=./config/.irbrc
@@ -105,29 +86,11 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
-
-# Setup local docker client env via dinghy
-#eval $(dinghy env)
-
 # added by Nix installer
-if [ -e ~/.nix-profile/etc/profile.d/nix.sh ]; then . ~/.nix-profile/etc/profile.d/nix.sh; fi
-export NIX_PATH=$NIX_PATH:bbpkgs=https://github.com/BookBub/nixpkgs/archive/VERSION.tar.gz
+#if [ -e ~/.nix-profile/etc/profile.d/nix.sh ]; then . ~/.nix-profile/etc/profile.d/nix.sh; fi
+#export NIX_PATH=$NIX_PATH:bbpkgs=https://github.com/BookBub/nixpkgs/archive/VERSION.tar.gz
 
+# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
+export PATH="$PATH:$HOME/.rvm/bin"
 
-if [ -z "$IN_NIX_SHELL" ]; then
-  echo "Not in NIX shell, loading default project/NIX..."
-
-  # Default Project
-  cd ~/src/mockingjay
-  nx
-else
-  echo "In NIX shell."
-fi
-
-# Chirp Alexa skill/ASK helper
-function askv () {
-  local role="$1"
-  shift
-  aws-vault exec "$role" -- ask "$@"
-}
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
