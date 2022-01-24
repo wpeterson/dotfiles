@@ -1,3 +1,0 @@
-#!/bin/bash
-cd /Applications/Xpra.app/Contents/MacOS/
-./Xpra "$@"

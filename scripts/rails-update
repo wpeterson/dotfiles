@@ -1,6 +1,0 @@
-#!/bin/bash
-set -e
-
-bundle check || bundle install
-bundle exec rake db:migrate db:test:prepare
-spring stop

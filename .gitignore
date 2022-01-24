@@ -1,3 +1,6 @@
 *.pem
 
-scripts/skylinr
+scripts/argo
+scripts/docker-credential-osxkeychain
+scripts/helm
+scripts/kubectl
