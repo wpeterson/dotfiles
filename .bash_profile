@@ -25,13 +25,14 @@ fi
 export CLICOLOR=1
 export LSCOLORS=ExFxCxDxBxegedabagacad
 export EDITOR=vim
-
-export PS1='\[\e[1;34m\][$(__git_ps1 "%s") \[\e[0m\]\w\[\e[1;34m\]]\$> \[\e[0m\]'
+export PS1='\e[1;32m\][aws ${AWS_PROFILE:-default}]\[\e[1;34m\][$(__git_ps1 "%s") \[\e[0m\]\w\[\e[1;34m\]]\$> \[\e[0m\]'
 export PS1="\[\033[G\]$PS1"
+
+export AWS_PROFILE=dev
 
 ec2 () {
     PATTERN=$1
-    REGION=${2:-us-east-1}
+    REGION=${2:-us-east-2}
 
     aws ec2 describe-instances \
         --region=${REGION} \
