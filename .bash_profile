@@ -64,12 +64,13 @@ alias master='git checkout master'
 alias main='git checkout main'
 alias rubyLint='git diff --name-only master..$(__git_ps1 %s) | grep \\.rb | xargs rubocop'
 
-# Rails Aliases
 alias b='bundle exec'
 alias h='heroku'
 alias r='rails'
 alias bi='bundle install'
 alias bo='EDITOR=subl bundle open'
+
+alias k='kubectl'
 alias please='sudo'
 
 # NIX / overmind
