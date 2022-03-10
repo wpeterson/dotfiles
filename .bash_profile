@@ -70,6 +70,8 @@ alias r='rails'
 alias bi='bundle install'
 alias bo='EDITOR=subl bundle open'
 
+alias per='pipenv run'
+
 alias k='kubectl'
 alias please='sudo'
 
