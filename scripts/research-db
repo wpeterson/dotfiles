@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+set -e
+
+export PGPASSWORD=$RESEARCH_DB_PASS
+psql -h alden-research-public.cuhiqihjaxwi.us-east-2.rds.amazonaws.com -U research --no-password
