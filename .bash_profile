@@ -29,7 +29,7 @@ export PS1='\e[1;32m\][aws ${AWS_PROFILE:-default}]\[\e[1;34m\][$(__git_ps1 "%s"
 export PS1="\[\033[G\]$PS1"
 
 export AWS_REGION=us-east-2
-export AWS_PROFILE=dev
+export AWS_PROFILE=staging
 
 ec2 () {
     PATTERN=$1
