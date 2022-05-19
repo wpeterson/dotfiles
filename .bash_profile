@@ -70,6 +70,8 @@ alias r='rails'
 alias bi='bundle install'
 alias bo='EDITOR=subl bundle open'
 
+# Python Aliases
+alias python=python3
 alias per='pipenv run'
 
 alias k='kubectl'
