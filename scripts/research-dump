@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+set -e
+
+TARGET=/tmp/research.dump
+
+export PGPASSWORD=$RESEARCH_DB_PASS
+CMD="pg_dump -h alden-research-public.cuhiqihjaxwi.us-east-2.rds.amazonaws.com \
+        -U research --no-password --no-owner --no-privileges \
+        -Fc -f $TARGET $@"
+echo $CMD
+$CMD
