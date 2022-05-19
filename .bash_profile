@@ -81,6 +81,10 @@ alias please='sudo'
 alias nx='nix-shell --command "$(declare -p PS1); return"'
 alias overmindReload='overmind kill; sleep 2; overmind start'
 
+# Terragrunt Aliases
+alias tgrp='terragrunt run-all plan -out .plan | less -R'
+alias tgra='terragrunt run-all apply .plan'
+
 # Project Aliases
 
 # IRB Shell config
