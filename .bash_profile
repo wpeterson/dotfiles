@@ -86,6 +86,14 @@ alias tgrp='terragrunt run-all plan -out .plan | less -R'
 alias tgra='terragrunt run-all apply .plan'
 
 # Project Aliases
+alias aa='cd ~/src/alden-auth'
+alias aah='cd ~/src/alden-auth-helm'
+alias ac='cd ~/src/alden-collect'
+alias ach='cd ~/src/alden-collect-helm'
+alias ae='cd ~/src/explore'
+alias aeh='cd ~/src/explore-helm'
+alias cbe='cd ~/src/comp-bio-etl'
+alias infra='cd ~src/infrastructure-live'
 
 # IRB Shell config
 IRBRC=./config/.irbrc
