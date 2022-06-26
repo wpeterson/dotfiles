@@ -2,6 +2,7 @@ if [ -f ~/.secrets ]; then
   source ~/.secrets
 fi
 
+export BASH_SILENCE_DEPRECATION_WARNING=1
 export PATH=/Applications/GitX.app/Contents/Resources:$PATH
 export PATH=~/scripts:$PATH
 export PATH=/usr/local/bin:$PATH
