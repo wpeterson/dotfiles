@@ -51,8 +51,6 @@ bind 'set show-all-if-ambiguous on'
 # Less Paging Config
 alias less="less -X"
 
-alias netwtf='sudo /usr/local/Cellar/mtr/0.87/sbin/mtr -n 8.8.8.8'
-
 # Git Aliases
 alias gpo="git push -u origin HEAD"
 alias gg='git grep -in'
