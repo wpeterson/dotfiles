@@ -1,0 +1,28 @@
+{
+  "caret_extra_top": 1,
+  "caret_extra_bottom": 1,
+  "caret_extra_width": 1,
+  "caret_style": "smooth",
+  "draw_white_space": "all",
+  "ensure_newline_at_eof_on_save": true,
+  "inactive_sheet_dimming": false,
+  "index_files": false,
+  "rulers":
+  [
+    100,
+    120
+  ],
+  "save_on_focus_lost": true,
+  "tab_size": 2,
+  "theme": "Gravity One.sublime-theme",
+  "translate_tabs_to_spaces": true,
+  "trim_trailing_white_space_on_save": true,
+  "use_tab_stops": true,
+  "wrap_width": 120,
+  "ignored_packages":
+  [
+    "Vintage",
+  ],
+  "font_size": 12,
+  "color_scheme": "Packages/Theme - Gravity/Monokai Gravity.sublime-color-scheme",
+}
