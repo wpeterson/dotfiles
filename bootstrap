@@ -12,3 +12,4 @@ end
 
 %x{ mkdir -p ~/Library/KeyBindings }
 %x{ cp DefaultKeyBinding.dict ~/Library/KeyBindings }
+%x{ ln -s ~/.bash_profile ~/.bashrc }
