@@ -28,7 +28,13 @@ export CLICOLOR=1
 export LSCOLORS=ExFxCxDxBxegedabagacad
 export EDITOR=vim
 export PS1='\[\e[1;34m\][$(__git_ps1 "%.20s") \[\e[0m\]\W\[\e[1;34m\]]\$> \[\e[0m\]'
-export PS1="\[\033[G\]$PS1"
+if [[ -n "$IN_NIX_SHELL" ]]; then
+  nix_flag='\[\e[0;32m\][NIX]'
+  export PS1="\[\033[G\]$nix_flag$PS1"
+else
+  export PS1="\[\033[G\]$PS1"
+fi
+
 
 export AWS_REGION=us-east-1
 # export AWS_PROFILE=staging
@@ -78,7 +84,7 @@ alias k='kubectl'
 alias please='sudo'
 
 # NIX / overmind
-alias nx='nix-shell --command "$(declare -p PS1); return"'
+alias nx='nix-shell --run bash'
 alias overmindReload='overmind kill; sleep 2; overmind start'
 
 # Terragrunt Aliases
