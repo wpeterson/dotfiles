@@ -30,12 +30,12 @@ export EDITOR=vim
 export PS1='\[\e[1;34m\][$(__git_ps1 "%.20s") \[\e[0m\]\W\[\e[1;34m\]]\$> \[\e[0m\]'
 export PS1="\[\033[G\]$PS1"
 
-export AWS_REGION=us-east-2
-export AWS_PROFILE=staging
+export AWS_REGION=us-east-1
+# export AWS_PROFILE=staging
 
 ec2 () {
     PATTERN=$1
-    REGION=${2:-us-east-2}
+    REGION=${2:-us-east-1}
 
     aws ec2 describe-instances \
         --region=${REGION} \
