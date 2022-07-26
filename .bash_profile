@@ -86,14 +86,7 @@ alias tgrp='terragrunt run-all plan -out .plan | less -R'
 alias tgra='terragrunt run-all apply .plan'
 
 # Project Aliases
-alias aa='cd ~/src/alden-auth'
-alias aah='cd ~/src/alden-auth-helm'
-alias ac='cd ~/src/alden-collect'
-alias ach='cd ~/src/alden-collect-helm'
-alias ae='cd ~/src/explore'
-alias aeh='cd ~/src/explore-helm'
-alias cbe='cd ~/src/comp-bio-etl'
-alias infra='cd ~src/infrastructure-live'
+alias ll='cd ~/src/lello'
 
 # IRB Shell config
 IRBRC=./config/.irbrc
@@ -105,14 +98,15 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
+# BookBub Config
+export BBWORKSPACE=/Users/winfield/src
+
 # added by Nix installer
-#if [ -e ~/.nix-profile/etc/profile.d/nix.sh ]; then . ~/.nix-profile/etc/profile.d/nix.sh; fi
-#export NIX_PATH=$NIX_PATH:bbpkgs=https://github.com/BookBub/nixpkgs/archive/VERSION.tar.gz
+if [ -e /Users/winfield/.nix-profile/etc/profile.d/nix.sh ]; then . /Users/winfield/.nix-profile/etc/profile.d/nix.sh; fi
 
-# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
-export PATH="$PATH:$HOME/.rvm/bin"
-
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
+# Tab Completion Config(s)
+complete -F _ssh sesh
+complete -F _scp seshcp
 
 # Setup direnv hooks
-# eval "$(direnv hook bash)"
+eval "$(direnv hook bash)"
