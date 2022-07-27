@@ -92,7 +92,10 @@ alias tgrp='terragrunt run-all plan -out .plan | less -R'
 alias tgra='terragrunt run-all apply .plan'
 
 # Project Aliases
-alias ll='cd ~/src/lello'
+alias lello='cd ~/src/lello'
+alias plural='cd ~/src/plural'
+alias pulp='cd ~/src/pulp'
+alias taft='cd ~/src/taft'
 
 # IRB Shell config
 IRBRC=./config/.irbrc
