@@ -93,6 +93,7 @@ alias tgra='terragrunt run-all apply .plan'
 
 # Project Aliases
 alias lello='cd ~/src/lello'
+alias nile='cd ~/src/nile'
 alias plural='cd ~/src/plural'
 alias pulp='cd ~/src/pulp'
 alias taft='cd ~/src/taft'
