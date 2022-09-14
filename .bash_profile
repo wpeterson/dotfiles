@@ -87,9 +87,6 @@ alias please='sudo'
 alias nx='nix-shell --run bash'
 alias overmindReload='overmind kill; sleep 2; overmind start'
 
-# Terragrunt Aliases
-alias tgrp='terragrunt run-all plan -out .plan | less -R'
-alias tgra='terragrunt run-all apply .plan'
 
 # Project Aliases
 alias lello='cd ~/src/lello'
