@@ -89,11 +89,15 @@ alias overmindReload='overmind kill; sleep 2; overmind start'
 
 
 # Project Aliases
+alias clippy='cd ~/src/clippy'
+alias docs='cd ~/src/docs'
 alias lello='cd ~/src/lello'
+alias mockingjay='cd ~/src/mockingjay'
 alias nile='cd ~/src/nile'
 alias plural='cd ~/src/plural'
 alias pulp='cd ~/src/pulp'
 alias taft='cd ~/src/taft'
+alias valve='cd ~/src/valve'
 
 # IRB Shell config
 IRBRC=./config/.irbrc
