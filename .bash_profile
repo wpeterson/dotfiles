@@ -87,6 +87,9 @@ alias please='sudo'
 alias nx='nix-shell --run bash'
 alias overmindReload='overmind kill; sleep 2; overmind start'
 
+# Production EC2 Aliases
+alias ec2-production="ec2 '*bookbub.com*' | grep 10\.0"
+alias ec2-staging="ec2 '*kobubob.com*' | grep 10\.1"
 
 # Project Aliases
 alias clippy='cd ~/src/clippy'
