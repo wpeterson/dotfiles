@@ -95,12 +95,16 @@ alias ec2-staging="ec2 '*kobubob.com*' | grep 10\.1"
 alias clippy='cd ~/src/clippy'
 alias docs='cd ~/src/docs'
 alias lello='cd ~/src/lello'
+alias laminar='cd ~/src/laminar'
 alias mockingjay='cd ~/src/mockingjay'
+alias nest='cd ~/src/nest'
 alias nile='cd ~/src/nile'
+alias pince='cd ~/src/pince'
 alias plural='cd ~/src/plural'
 alias pulp='cd ~/src/pulp'
 alias taft='cd ~/src/taft'
 alias valve='cd ~/src/valve'
+alias wf='cd ~/src/wellfleet'
 
 # IRB Shell config
 IRBRC=./config/.irbrc
