@@ -1,6 +1,7 @@
 [user]
 	name = Winfield Peterson
 	email = winfield@bookbub.com
+	signingkey = /Users/winfield/.ssh/id_rsa
 
 [color]
   ui = auto
@@ -51,3 +52,7 @@
 
 [push]
    default = current
+[gpg]
+	format = ssh
+[commit]
+	gpgsign = true
