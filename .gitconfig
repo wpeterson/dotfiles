@@ -49,9 +49,12 @@
 [diff]
 	algorithm = patience
 	context = 5
+	submodule = log
 
 [push]
    default = current
+[status]
+	submodulesummary = true
 [gpg]
 	format = ssh
 [commit]
