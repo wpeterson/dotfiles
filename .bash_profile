@@ -29,7 +29,7 @@ export LSCOLORS=ExFxCxDxBxegedabagacad
 export EDITOR=vim
 export PS1='\[\e[1;34m\][$(__git_ps1 "%.20s") \[\e[0m\]\W\[\e[1;34m\]]\$> \[\e[0m\]'
 if [[ -n "$IN_NIX_SHELL" ]]; then
-  nix_flag='\[\e[0;32m\][NIX]'
+  nix_flag='\[\e[0;32m\][NX]'
   export PS1="\[\033[G\]$nix_flag$PS1"
 else
   export PS1="\[\033[G\]$PS1"
