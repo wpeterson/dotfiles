@@ -103,6 +103,7 @@ alias pince='cd ~/src/pince'
 alias plural='cd ~/src/plural'
 alias pulp='cd ~/src/pulp'
 alias taft='cd ~/src/taft'
+alias templater='cd ~/src/templater'
 alias valve='cd ~/src/valve'
 alias wf='cd ~/src/wellfleet'
 
