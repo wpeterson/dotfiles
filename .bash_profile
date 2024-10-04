@@ -16,6 +16,14 @@ export PATH=./.bin:$PATH
 export GOPATH=~/go
 export PATH=$PATH:$GOPATH/bin
 
+# ASDF
+if [[ -n "$IN_NIX_SHELL" ]]; then
+  echo 'NIX detected, skipping asdf'
+else
+  . "$HOME/.asdf/asdf.sh"
+  . "$HOME/.asdf/completions/asdf.bash"
+fi
+
 if [ -f `brew --prefix`/etc/bash_completion ]; then
   . `brew --prefix`/etc/bash_completion
   . `brew --prefix`/etc/bash_completion.d/git-prompt.sh
@@ -106,6 +114,8 @@ alias taft='cd ~/src/taft'
 alias templater='cd ~/src/templater'
 alias valve='cd ~/src/valve'
 alias wf='cd ~/src/wellfleet'
+alias arr='cd ~/src/atlas-rails'
+alias ajs='cd ~/src/atlas-react'
 
 # IRB Shell config
 IRBRC=./config/.irbrc
