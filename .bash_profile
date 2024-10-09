@@ -116,6 +116,8 @@ alias valve='cd ~/src/valve'
 alias wf='cd ~/src/wellfleet'
 alias arr='cd ~/src/atlas-rails'
 alias ajs='cd ~/src/atlas-react'
+alias adp='cd ~/src/atlas-data-universe-pipelines'
+
 
 # IRB Shell config
 IRBRC=./config/.irbrc
