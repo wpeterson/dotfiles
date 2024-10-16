@@ -129,7 +129,7 @@ export PATH="/usr/local/heroku/bin:$PATH"
 export BBWORKSPACE=/Users/winfield/src
 
 # added by Nix installer
-if [ -e /Users/winfield/.nix-profile/etc/profile.d/nix.sh ]; then . /Users/winfield/.nix-profile/etc/profile.d/nix.sh; fi
+if [ -e /nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh ]; then . /nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh; fi
 
 # Tab Completion Config(s)
 complete -F _ssh sesh
