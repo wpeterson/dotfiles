@@ -3,7 +3,7 @@ if [ -f ~/.secrets ]; then
 fi
 
 export BASH_SILENCE_DEPRECATION_WARNING=1
-export PATH=/opt/homebrew/bin:$PATH
+export PATH=$PATH:/opt/homebrew/bin
 export PATH=/Applications/GitX.app/Contents/Resources:$PATH
 export PATH=~/scripts:$PATH
 export PATH=/usr/local/bin:$PATH
