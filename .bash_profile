@@ -117,6 +117,7 @@ alias wf='cd ~/src/wellfleet'
 alias arr='cd ~/src/atlas-rails'
 alias ajs='cd ~/src/atlas-react'
 alias adp='cd ~/src/atlas-data-universe-pipelines'
+alias art='cd ~/src/artemis'
 
 
 # IRB Shell config
