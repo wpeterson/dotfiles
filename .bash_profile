@@ -8,7 +8,6 @@ export PATH=/Applications/GitX.app/Contents/Resources:$PATH
 export PATH=~/scripts:$PATH
 export PATH=/usr/local/bin:$PATH
 export PATH=$PATH:/usr/local/share/npm/bin
-export PATH=$PATH:/Applications/Postgres.app/Contents/Versions/10/bin
 export PATH="/usr/local/sbin:$PATH"
 export PATH="/usr/local/opt/openssl/bin:$PATH"
 export PATH=./.bin:$PATH
@@ -44,20 +43,6 @@ else
 fi
 
 
-export AWS_REGION=us-east-1
-# export AWS_PROFILE=staging
-
-ec2 () {
-    PATTERN=$1
-    REGION=${2:-us-east-1}
-
-    aws ec2 describe-instances \
-        --region=${REGION} \
-        --filters Name=tag:Name,Values=${PATTERN}* \
-        --query 'Reservations[].Instances[].[PrivateIpAddress,InstanceId,Tags[?Key==`Name`].Value[]]' \
-        --output text | sed 's/None$/None\n/' | sed '$!N;s/\n/ /'
-}
-
 # Readline Config
 bind 'set completion-ignore-case on'
 bind 'set completion-prefix-display-length 2'
@@ -84,20 +69,12 @@ alias r='rails'
 alias bi='bundle install'
 alias bo='EDITOR=subl bundle open'
 
-# Python Aliases
-alias python=python3
-alias per='pipenv run'
-
 alias k='kubectl'
 alias please='sudo'
 
 # NIX / overmind
 alias nx='nix-shell --run bash'
 alias overmindReload='overmind kill; sleep 2; overmind start'
-
-# Production EC2 Aliases
-alias ec2-production="ec2 '*bookbub.com*' | grep 10\.0"
-alias ec2-staging="ec2 '*kobubob.com*' | grep 10\.1"
 
 # Project Aliases
 alias arr='cd ~/src/atlas-rails'
@@ -111,9 +88,6 @@ IRBRC=./config/.irbrc
 
 ### Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
-
-# BookBub Config
-export BBWORKSPACE=/Users/winfield/src
 
 # added by Nix installer
 if [ -e /nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh ]; then . /nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh; fi
