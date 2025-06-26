@@ -15,6 +15,10 @@ export PATH=./.bin:$PATH
 export GOPATH=~/go
 export PATH=$PATH:$GOPATH/bin
 
+# Starship Prompt management
+# https://starship.rs/
+eval "$(starship init bash)"
+
 # ASDF
 if [[ -n "$IN_NIX_SHELL" ]]; then
   echo 'NIX detected, skipping asdf'
@@ -34,14 +38,6 @@ fi
 export CLICOLOR=1
 export LSCOLORS=ExFxCxDxBxegedabagacad
 export EDITOR=vim
-export PS1='\[\e[1;34m\][$(__git_ps1 "%.20s") \[\e[0m\]\W\[\e[1;34m\]]\$> \[\e[0m\]'
-if [[ -n "$IN_NIX_SHELL" ]]; then
-  nix_flag='\[\e[0;32m\][NX]'
-  export PS1="\[\033[G\]$nix_flag$PS1"
-else
-  export PS1="\[\033[G\]$PS1"
-fi
-
 
 # Readline Config
 bind 'set completion-ignore-case on'
