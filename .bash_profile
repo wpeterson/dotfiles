@@ -81,6 +81,8 @@ alias arr='cd ~/src/atlas-rails'
 alias ajs='cd ~/src/atlas-react'
 alias adp='cd ~/src/atlas-data-universe-pipelines'
 alias art='cd ~/src/artemis'
+alias dup='cd ~/src/data-universe-pipelines'
+alias dur='cd ~/src/data-universe-rails'
 
 
 # IRB Shell config
