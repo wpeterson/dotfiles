@@ -23,8 +23,7 @@ eval "$(starship init bash)"
 if [[ -n "$IN_NIX_SHELL" ]]; then
   echo 'NIX detected, skipping asdf'
 else
-  . "$HOME/.asdf/asdf.sh"
-  . "$HOME/.asdf/completions/asdf.bash"
+  export PATH="${ASDF_DATA_DIR:-$HOME/.asdf}/shims:$PATH"
 fi
 
 if [ -f `brew --prefix`/etc/bash_completion ]; then
