@@ -16,6 +16,9 @@ export PATH=./.bin:$PATH
 export GOPATH=~/go
 export PATH=$PATH:$GOPATH/bin
 
+# Patch for Ruby openssl issues with default Cert Store
+export RUBYOPT="-r$HOME/.rubyopenssl_default_store.rb $RUBYOPT"
+
 # Starship Prompt management
 # https://starship.rs/
 eval "$(starship init bash)"
