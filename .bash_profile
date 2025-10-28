@@ -76,13 +76,8 @@ alias nx='nix-shell --run bash'
 alias overmindReload='overmind kill; sleep 2; overmind start'
 
 # Project Aliases
-alias arr='cd ~/src/atlas-rails'
-alias ajs='cd ~/src/atlas-react'
-alias adp='cd ~/src/atlas-data-universe-pipelines'
-alias art='cd ~/src/artemis'
-alias dup='cd ~/src/data-universe-pipelines'
-alias dur='cd ~/src/data-universe-rails'
-
+alias dotfiles='cd ~/src/dotfiles'
+alias web='cd ~/src/web'
 
 # IRB Shell config
 IRBRC=./config/.irbrc
