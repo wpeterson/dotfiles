@@ -1,7 +1,7 @@
 #!/usr/bin/env ruby
 target = ARGV[0] || "~"
 
-excludes = %w[. .. .config .git README.md .gitignore bootstrap]
+excludes = %w[. .. .config .git README.md .gitignore bootstrap examples]
 dotfiles = Dir.entries(Dir.pwd) - excludes
 
 dotfiles.each do |dotfile|
