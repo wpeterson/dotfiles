@@ -1,17 +1,17 @@
 #!/usr/bin/env ruby
-target = ARGV[0] || '~'
+target = ARGV[0] || "~"
 
-excludes = %w(. .. .config .git README.md .gitignore bootstrap)
+excludes = %w[. .. .config .git README.md .gitignore bootstrap]
 dotfiles = Dir.entries(Dir.pwd) - excludes
 
 dotfiles.each do |dotfile|
   link = "#{target}/#{dotfile}"
   puts "Linking #{link}"
-  %x{ ln -s #{Dir.pwd}/#{dotfile} #{link} }
+  `ln -s #{Dir.pwd}/#{dotfile} #{link}`
 end
 
-%x{ mkdir -p ~/Library/KeyBindings }
-%x{ cp DefaultKeyBinding.dict ~/Library/KeyBindings }
-%x{ ln -s ~/.bash_profile ~/.bashrc }
-%x{ mkdir -p ~/.config }
-%x{ ln -s #{Dir.pwd}/.config/starship.toml ~/.config/starship.toml }
+`mkdir -p ~/Library/KeyBindings`
+`cp DefaultKeyBinding.dict ~/Library/KeyBindings`
+`ln -s ~/.bash_profile ~/.bashrc`
+`mkdir -p ~/.config`
+`ln -s #{Dir.pwd}/.config/starship.toml ~/.config/starship.toml`
